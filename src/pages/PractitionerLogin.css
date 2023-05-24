@@ -1,0 +1,63 @@
+.practitioner-login-button{
+    height: 40px;
+    width: 120px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid purple;
+    background-color: purple;
+    color: black;
+    cursor:pointer; 
+    margin-left: 90px;
+     margin-top: 20px; 
+}
+.practitioner-login-button:hover{
+    background-color: #fff;
+}
+.practitioner-login-image{
+    background-image: url(../assets//sign-up-image.jpg);
+    height: 500px;
+    width: 50%;
+    object-fit: cover;
+    background-position:left;
+    background-repeat: no-repeat; 
+}
+.practitioner-login-div{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 200px;
+}
+.practitioner-login-form{
+    margin-top: 60px;
+}
+.practitioner-email-input{
+    margin-left: 50px;
+    border: 3px solid purple;
+    font-size: 17px;
+}
+.practitioner-password-input{
+    border: 3px solid purple;
+    font-size: 17px;
+    margin-right: 30px;
+}
+.forgot-password{
+    margin-left: 90px;
+    margin-bottom: 50px;
+}
+.acct-btn{
+    display: flex;
+    flex-direction: row;
+    align-items: right;
+}
+.sign-up{
+    margin-left: 40px;
+}
+.signup{
+    text-decoration: none;
+    color: purple;
+    padding-top: 50px;
+   
+}
+.forgot-password{
+    text-decoration: none;
+    color: purple;
+}

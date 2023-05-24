@@ -1,0 +1,63 @@
+.back-button{
+  height: 40px;
+  width: 150px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid purple;
+  background-color: purple;
+  color: black;
+  cursor:pointer; 
+  margin-right: 60px;
+}
+.back-button:hover{
+  background-color: #fff;
+}
+.sign-up-button{
+  height: 40px;
+  width: 120px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid purple;
+  background-color: purple;
+  color: black;
+  cursor:pointer; 
+  margin-left: 100px;
+}
+.sign-up-button:hover{
+    background-color: #fff;
+}
+.sign-up-image{
+    background-image: url(../assets//sign-up-image.jpg);
+    height: 500px;
+    width: 50%;
+    object-fit: cover;
+    background-position:right;
+    background-repeat: no-repeat; 
+}
+.sign-up-div{
+  display: flex;
+  flex-direction: row;
+  gap: 200px;
+}
+.sign-up-form{
+    margin-top: 60px;
+}
+.first-name-sign-up-input{
+  border: 3px solid purple;
+  font-size: 17px;
+}
+.last-name-sign-up-input{
+  margin-left: 25px;
+  border: 3px solid purple;
+    font-size: 17px;
+}
+.email-sign-up-input{
+  border: 3px solid purple;
+  font-size: 17px;
+  margin-left: 60px;
+}
+.password-sign-up-input{
+  margin-left: 30px;
+  border: 3px solid purple;
+  font-size: 17px;
+}

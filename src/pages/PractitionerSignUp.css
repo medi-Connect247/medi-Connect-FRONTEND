@@ -1,0 +1,63 @@
+.back-button{
+    height: 40px;
+    width: 150px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid purple;
+    background-color: purple;
+    color: black;
+    cursor:pointer; 
+    margin-right: 60px;
+  }
+  .back-button:hover{
+    background-color: #fff;
+  }
+  .practitioner-signup-button{
+    height: 40px;
+    width: 120px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid purple;
+    background-color: purple;
+    color: black;
+    cursor:pointer; 
+    margin-left: 100px;
+  }
+  .practitioner-signup-button:hover{
+    background-color: #fff;
+}
+.practitioner-sign-up-image{
+    background-image: url(../assets//sign-up-image.jpg);
+    height: 500px;
+    width: 50%;
+    object-fit: cover;
+    background-position:left;
+    background-repeat: no-repeat; 
+}
+.practitioner-sign-up-div{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 200px;
+}
+.practitioner-sign-up-form{
+    margin-top: 60px; 
+}
+.practitioner-firstname-signup-input{
+    border: 3px solid purple;
+    font-size: 17px;
+}
+.practitioner-lastname-signup-input{
+    margin-left: 25px;
+    border: 3px solid purple;
+    font-size: 17px; 
+}
+.practitioner-email-signup-input{
+    border: 3px solid purple;
+    font-size: 17px;
+    margin-left: 60px;
+}
+.practitioner-password-signup-input{
+    margin-left: 30px;
+    border: 3px solid purple;
+    font-size: 17px;
+}

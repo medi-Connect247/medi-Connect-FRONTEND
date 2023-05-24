@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+nav {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.hero-section {
+    height: 100vh;
+    width: 100%;
+    background-image: url(../assets/BackgroundImage.jpeg);
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.icon {
+    font-size: 30px;
+    position: relative;
+    top: 10px;
+}
+.nav-links ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+    position: relative;
+    left: 400px;
+}
+.nav-links ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    color: black;
+}
+.nav-links ul li a:hover {
+    color: #3d71bd;
+}
+.logo {
+    margin-top: 30px;
+    height: 80px;
+    width: 100px;
+    margin-left: 30px;
+}
+.app-name {
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    margin-top: 30px;
+}
+.dropdowncontainer {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 100;
+    border: 1px solid #fff;
+    background-color: #fff;
+    height: 80px;
+    width: 100px;
+    border-radius: 10px;
+}
+.dropdown:hover {
+    color: purple;
+    font-size: 20px;
+}
+.dropdown2:hover {
+    font-size: 20px;
+    color: purple;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    position: relative;
+    top: 250px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    color: black;
+}
+.hero-section-sub-text {
+    color: black;
+    margin-left: 400px;
+    font-size: 1.5rem;
+    position: relative;
+    top: 270px;
+}
+.about-section {
+    display: flex;
+    flex-direction: row;
+}
+.about-image {
+    background-image: url(../assets//about-image.jpeg);
+    height: 500px;
+    width: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 40px;
+    border-radius: 20px;
+    flex-shrink: 0;
+}
+.about-texts {
+    display: inline-block;
+}
+.about-header {
+    margin-top: 80px;
+    margin-left: 30px;
+    align-self: stretch;
+}
+.about-sub-texts {
+    font-size: 20px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+.container {
+    position: relative;
+    right: 100px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 0px;
+}
+.item {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.text1 {
+    font-size: 20px;
+    margin-left: 10px;
+}
+.about-icon {
+    color: #3d71bd;
+    font-size: 30px;
+}
+.features-image {
+    background-image: linear-gradient(
+            0deg,
+            rgba(61, 113, 189, 0.69),
+            rgba(61, 113, 189, 0.69)
+        ),
+        url(../assets/BackgroundImage2.jpeg);
+    height: 100vh;
+    width: 100%;
+    margin-top: 30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+h3 {
+    color: #fff;
+    position: relative;
+    top: 110px;
+    margin-left: 200px;
+    font-size: 30px;
+}
+.features-sub-text {
+    color: #fff;
+    position: relative;
+    top: 130px;
+    font-size: 20px;
+    margin-left: 200px;
+}
+.box {
+    border: 3px solid #3d71bd;
+    margin-top: 180px;
+    height: 250px;
+    width: 300px;
+    background-color: white;
+    border-radius: 20px;
+}
+.box-section {
+    margin-left: 200px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+i {
+    font-size: 50px;
+    color: #3d71bd;
+    margin-left: 130px;
+}
+.features-header {
+    font-size: 20px;
+    color: black;
+    margin-left: 80px;
+    margin-bottom: 220px;
+    top: 0;
+}
+.features-texts{
+  margin-left: 12px;
+  font-size: 17px;
+  position: relative;
+  bottom: 200px; 
+}
+.process-image{
+  background-image: url(../assets/6.jpeg);
+  height: 500px;
+  width: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 40px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+.process-section{
+  display: flex;
+  flex-direction: row-reverse;
+}

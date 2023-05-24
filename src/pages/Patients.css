@@ -1,0 +1,25 @@
+/* .register-button1{
+    border: 1px solid purple;
+    background-color: purple;
+    color: black;
+    cursor: pointer;
+    height: 40px;
+    width: 120px;
+    font-size: 15px;
+    border-radius: 10px
+}
+.register-button2{
+    border: 1px solid purple;
+    background-color: purple;
+    color: black;
+    cursor: pointer;
+    height: 40px;
+    width: 120px;
+    font-size: 15px;
+    border-radius: 10px
+}
+.register-buttons{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+} */
