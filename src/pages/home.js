@@ -7,8 +7,11 @@ import FooterForm from "../components/footer";
 
 function Home() {
     const [viewPatientsDropDown, setDropDown] = useState(false);
-    const [viewPractitionersDropDown, setPractitionersDropDown] =
-        useState(false);
+    const [viewPractitionersDropDown, setPractitionersDropDown] = useState(false);
+	const [subject, setSubject] = useState('');
+	const [message, setMessage] = useState('');
+	const [email, setEmail] = useState('');
+    const [error, setError] = useState('');    
 
     const patientsDropDown = () => {
         setDropDown(!viewPatientsDropDown);
@@ -16,6 +19,20 @@ function Home() {
     const practitionersDropDown = () => {
         setPractitionersDropDown(!viewPractitionersDropDown);
     };
+	function handleSubjectChange(event){
+		         setSubject(event.target.value);
+	             setError('');
+		    };
+			function handleMessageChange(event){
+				         setMessage(event.target.value);
+				         setError('');
+				    };
+					function handleEmailChange(event){
+						setEmail(event.target.value);
+						setError('');
+				   };
+			   
+		
 
     return (
         <div>
@@ -82,7 +99,7 @@ function Home() {
             </nav>
             <div className="image-container">
                 <div className="hero-section">
-                    <h1>
+                    <h1 className="hero-header">
                         Complete and Accessible<br></br>Healthcare Solutions
                     </h1>
                     <p className="hero-section-sub-text">
@@ -266,8 +283,12 @@ function Home() {
                             <h3 className="features-header">
                                 Expert Medical Aid
                             </h3>
-							<p className="features-texts">We offer expert and customer friendly <br></br>medical aid to oour patients from 
-							 <br></br>professionals in practice. patients are rest assured<br></br> of the best care.</p>
+                            <p className="features-texts">
+                                We offer expert and customer friendly 
+                                medical aid to our patients from
+                                professionals in practice. patients are
+                                rest assured of the best care.
+                            </p>
                         </div>
 
                         <div className="box">
@@ -300,10 +321,13 @@ function Home() {
                             <h3 className="features-header">
                                 Expert Specialists
                             </h3>
-							<p className="features-texts">We have a wide range of Expert Healthcare
-							specialists<br></br> who are dedicated to bringing the<br></br> 
-							absolute best experience for our patients,<br></br>
-							Easily book appointments with our specialists</p>
+                            <p className="features-texts">
+                                We have a wide range of Expert Healthcare
+                                specialists who are dedicated to
+                                bringing the
+                                absolute best experience for our patients,
+                                Easily book appointments with our specialists
+                            </p>
                         </div>
 
                         <div className="box">
@@ -323,14 +347,116 @@ function Home() {
                                 </svg>
                             </i>
                             <h3 className="features-header">24/7 Support</h3>
-				           <p className="features-texts">Experience 24/7 support from our team of<br></br>experts who are dedicated to serving you<br></br> anywhere and anytime. Absolute trust <br></br>is our goal and we are dedicated to serve you</p>
+                            <p className="features-texts">
+                                Experience 24/7 support from our team of
+                                <br></br>experts who are dedicated to serving
+                                you<br></br> anywhere and anytime. Absolute
+                                trust <br></br>is our goal and we are dedicated
+                                to serve you
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-			<div className="process-section">
-				<div className="process-image"></div>
-				<div className="process-header">Our Process</div>
+            <div className="process-section">
+                <div className="process-image"></div>
+                <div className="process-texts">
+                    <h2 className="process-header">Our Process</h2>
+                    <p className="process-sub-texts">
+                        Go through the process listed to book appointments with
+                        our<br></br> medical specialists
+                    </p>
+                    <div className="process-box-div">
+                        <div className="process-box">
+							<div className="container">
+								<div className="item">
+									<i className="process-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M14.25 8.75c-.5 2.5-2.385 4.854-5.03 5.38A6.25 6.25 0 0 1 3.373 3.798C5.187 1.8 8.25 1.25 10.75 2.25"/><path d="m5.75 7.75l2.5 2.5l6-6.5"/></g></svg></i>
+								</div>
+								<span className="text2">
+                                Complete registration and create account
+                            </span>
+							</div>
+
+						</div>
+
+
+                        <div className="process-box">
+						<div className="container">
+								<div className="item">
+									<i className="process-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M14.25 8.75c-.5 2.5-2.385 4.854-5.03 5.38A6.25 6.25 0 0 1 3.373 3.798C5.187 1.8 8.25 1.25 10.75 2.25"/><path d="m5.75 7.75l2.5 2.5l6-6.5"/></g></svg></i>
+								</div>
+								<span className="text2">
+                               Schedule an appointment with our Healthcare Specialists
+                            </span>
+							</div>
+						</div>
+
+
+                        <div className="process-box">
+						<div className="container">
+								<div className="item">
+									<i className="process-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M14.25 8.75c-.5 2.5-2.385 4.854-5.03 5.38A6.25 6.25 0 0 1 3.373 3.798C5.187 1.8 8.25 1.25 10.75 2.25"/><path d="m5.75 7.75l2.5 2.5l6-6.5"/></g></svg></i>
+								</div>
+								<span className="text2">
+                                Complete necessary payments for consultaion with Healthcare providers
+                            </span>
+							</div>
+						</div>
+                    </div>
+                </div>
+            </div>
+
+			<div className="contact-section">
+				<div className="contact-image"></div>
+				<div className="contact-right">
+					<h1 className="contact-header">Contact us</h1>
+					<p className="contact-sub-text">Incase of any further questions or<br></br> inquiries,kindly contact us</p>
+					<form>
+						<label>
+							<input type= "text" value={subject} onChange={handleSubjectChange} placeholder="Subject"/>
+						</label>
+
+						<label>
+							<input type= "text" value={message} onChange={handleMessageChange} placeholder="Message"/>
+						</label>
+						{error && <p>{error}</p>}
+						<button type="submit" className='contact-btn'>Contact</button>
+
+					</form>
+				</div>
+			</div>
+			<div className="footer-section">
+				<div className="logo-section">
+					<div className="footer-logo">
+					<img src={logo} alt="Logo" className="logo" />
+					</div>
+					<p className="logo-text">Gain access to the best telemedicine<br></br> platform, Book appointment with medical<br></br> practitioners, and get<br></br> access to medications </p>
+				</div>
+
+				<div className="quick-links">
+					<h2 className="quick-links-section">Quick Links</h2>
+					<a href="">Home</a>
+					<a href="">Patient</a>
+					<a href="">About</a>
+					<a href="">Practitioner</a>
+					<a href="">Contacts</a>
+				</div>
+				<div className="socials-section">
+					<h2 className="socials">Contacts</h2>
+					<a>Facebook</a>
+					<a>Twitter</a>
+					<a>LinkedIn</a>
+					<a>Instagram</a>
+				</div>
+				<div className="newsletter-section">
+					<h2 className="newsletter-heading">Newsletter</h2>
+					<form>
+						<label>
+							<input type="text" placeholder="Email" value={email} onChange={handleEmailChange} className="email-input"/>
+						</label>
+						<button type="submit" className='submit-btn'>Submit</button>
+					</form>
+				</div>
 			</div>
         </div>
     );
