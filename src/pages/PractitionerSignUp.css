@@ -3,61 +3,153 @@
     width: 150px;
     font-size: 15px;
     border-radius: 8px;
-    border: 1px solid purple;
-    background-color: purple;
-    color: black;
+    border: 2px solid #3D71BD;
+    background-color: #3D71BD;
+    color: #fff;
     cursor:pointer; 
-    margin-right: 60px;
+    position: absolute;
+    right: 0px;
+    margin-top: 30px;
   }
   .back-button:hover{
-    background-color: #fff;
+    background: #090f17;
   }
-  .practitioner-signup-button{
-    height: 40px;
-    width: 120px;
-    font-size: 15px;
-    border-radius: 10px;
-    border: 1px solid purple;
-    background-color: purple;
-    color: black;
-    cursor:pointer; 
-    margin-left: 100px;
-  }
-  .practitioner-signup-button:hover{
-    background-color: #fff;
-}
-.practitioner-sign-up-image{
-    background-image: url(../assets//sign-up-image.jpg);
-    height: 500px;
-    width: 50%;
-    object-fit: cover;
-    background-position:left;
-    background-repeat: no-repeat; 
-}
-.practitioner-sign-up-div{
+  .practitioner-sign-up-section{
     display: flex;
     flex-direction: row-reverse;
-    gap: 200px;
-}
-.practitioner-sign-up-form{
-    margin-top: 60px; 
-}
-.practitioner-firstname-signup-input{
-    border: 3px solid purple;
-    font-size: 17px;
-}
-.practitioner-lastname-signup-input{
-    margin-left: 25px;
-    border: 3px solid purple;
-    font-size: 17px; 
-}
-.practitioner-email-signup-input{
-    border: 3px solid purple;
-    font-size: 17px;
+  }
+  .practitioner-sign-up-image{
+    background-image: url(../assets/doctor-pic.jpg);
+    height: 600px;
+    width: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* margin-top: 100px; */
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .sign-up-right{
+    /* margin-top: 100px; */
+    background-color: #fff;
+    height: 600px;
+    width: 50%;
+    margin-left: 100px;
+  }
+  .sign-up-header{
+    font-size: 25px;
+    margin-left: 40px;
+    margin-top: 20px;
+  }
+  .sign-up-sub-text{
+    margin-left: 40px;
+    margin-top: 10px;
+    font-size: 19px;
+  }
+  .sign-up-input{
+    border: 2px solid #E5E5E5;
+    width: 400px;
+    height: 40px;
+    left: 0px;
+    top: 51px;
+    margin-top: 20px;
+    border-radius: 10px;
+    color: black;
+    font-size: 12px;
+  }
+  .acct-btn{
+    height: 40px;
+    width: 400px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #3D71BD;
+    background-color: #3D71BD;
+    color: #fff;
+    cursor:pointer; 
+    margin-top: 20px;
+  }
+  .acct-btn:hover{
+    background: #090f17;
+  }
+  .sign-up-container{
+    display: flex;
+    align-items: center;
+    margin-right:100px;
+  }
+  .sign-up-text{
+    line-height: 2;
+  }
+  .line{
+    flex-grow: 1; 
+    height: 1px;
+    background-color: #808080; 
+    margin: 0 8px; 
+  }
+  
+  .create-acct-btn{
+    height: 40px;
+    width: 400px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid black;
+    background-color: #fff;
+    color: black;
+    cursor:pointer; 
+    margin-top: 20px;
+    margin-left: 40px;
+  }
+  .google-button {
+     display: flex;
+    align-items: center; 
+    height: 40px;
+    width: 400px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid black;
+    background-color: #fff;
+    color: black;
+    cursor:pointer; 
+    margin-top: 20px;
+    margin-left: 40px;
+  }
+  .google-icon {
+    font-size: 10px;
+    text-align: center;
+  }
+  .material-icons {
+    font-size: 14px;
+  }
+   .span-text{
+   text-align: center;
+  } 
+  .facebook-button {
+   display: flex;
+   align-items: center; 
+   height: 40px;
+   width: 400px;
+   font-size: 15px;
+   border-radius: 8px;
+   border: 1px solid black;
+   background-color: #fff;
+   color: black;
+   cursor:pointer; 
+   margin-top: 20px;
+   margin-left: 40px;
+  }
+  .facebook-icon {
+   font-size: 10px;
+   text-align: center;
+  }
+  .material-icons {
+   font-size: 14px;
+  }
+  .span-text{
+  text-align: center;
+  }
+  .sign-up-container{
+    margin-top: 20px;
     margin-left: 60px;
-}
-.practitioner-password-signup-input{
-    margin-left: 30px;
-    border: 3px solid purple;
-    font-size: 17px;
-}
+  }
+  .sign-up-a-tag{
+    margin-left: 10px;
+  }
