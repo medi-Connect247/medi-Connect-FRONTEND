@@ -7,16 +7,35 @@ function PatientLoginForm(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-     
-    function handleEmailChange(event){
-        setEmail(event.target.value);
+   
+
+    function handleEmailChange(event) {
+        const value = event.target.value.trim();
+        setEmail(value);
         setError('');
-      };
+        if (value === '') setError('Email is required.');
+        else if (!isValidEmail(value)) setError('Please enter a valid email address.');
+      }
       
-    function handlePasswordChange(event){
-        setPassword(event.target.value);
-            setError('');
+      function handlePasswordChange(event) {
+        const value = event.target.value.trim();
+        setPassword(value);
+        setError('');
+        if (value === '') setError('Password is required.');
+        else if (!isValidPassword(value)) setError('Please enter a valid password.');
+      }
+     
+
+      function isValidEmail(email) {
+        const emailRegex = /^\S+@\S+\.\S+$/;
+        return emailRegex.test(email);
       };
+
+      function isValidPassword(password) {
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{12,}$/;
+        return passwordRegex.test(password);
+      };
+
       return(
         <div>
              <Link to="/"><button type="submit" className='back-button'>Back to Homepage</button></Link>
