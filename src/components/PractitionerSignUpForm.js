@@ -17,7 +17,7 @@ function PatientSignUpForm(){
           setFirstName(value);
           setError('');
         } else {
-          setError('First name should contain alphabets only.');
+          setError('First name should contain alphabets and can not exceed 50 characters.');
         }
       };
     
@@ -27,10 +27,10 @@ function PatientSignUpForm(){
           setLastName(value);
           setError('');
         } else {
-          setError('Last name should contain alphabets only.');
+          setError('Last name should contain alphabets and can not exceed 50 characters.');
         }
       };
-      
+
       function handleEmailChange(event) {
         const value = event.target.value;
         if (value.length <= 50) {
@@ -86,6 +86,12 @@ function PatientSignUpForm(){
           setError('Please fill in all the fields.');
           return;
         }
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setPassword('');
+        setPasswordConfirmation('');
+        setError('');
     };
            
     return(
@@ -97,7 +103,7 @@ function PatientSignUpForm(){
             <div className="sign-up-right">
                 <h2 className="sign-up-header">Create an Account</h2>
                 <p className="sign-up-sub-text">Let's get you started</p>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label>
                         <input type="text" placeholder="First Name" value={firstName} onChange={handleFirstNameChange} className="sign-up-input"/>
                     </label>
