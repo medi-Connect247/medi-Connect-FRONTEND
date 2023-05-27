@@ -11,35 +11,89 @@ function PatientSignUpForm(){
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
     const [error, setError] = useState('');
 
-    function handleFirstNameChange(event){
-             setFirstName(event.target.value);
-             setError('');
-           };
-           
-    function handleLastNameChange(event){
-        setLastName(event.target.value);
-        setError('');
+    function handleFirstNameChange(event) {
+        const value = event.target.value;
+        if (/^[A-Za-z]*$/.test(value) && value.length <= 50) {
+          setFirstName(value);
+          setError('');
+        } else {
+          setError('First name should contain alphabets and can not exceed 50 characters.');
+        }
       };
+    
+      function handleLastNameChange(event) {
+        const value = event.target.value;
+        if (/^[A-Za-z]*$/.test(value) && value.length <= 50) {
+          setLastName(value);
+          setError('');
+        } else {
+          setError('Last name should contain alphabets and can not exceed 50 characters.');
+        }
+      };
+
+      function handleEmailChange(event) {
+        const value = event.target.value;
+        if (value.length <= 50) {
+          setEmail(value);
+          setError('');
       
-    function handleEmailChange(event){
-        setEmail(event.target.value);
-        setError('');
+          if (value.trim() === '') {
+            setError('Please enter your email address.');
+          } else if (!/\S+@\S+\.\S+/.test(value)) {
+            setError('Please enter a valid email address.');
+          }
+        } else {
+          setError('Email should not exceed 50 characters.');
+        }
       };
+   
+      function handlePasswordChange(event) {
+        const value = event.target.value;
+        if (value.length <= 30) {
+          setPassword(value);
+          setError('');
       
-    function handlePasswordChange(event){
-        setPassword(event.target.value);
-            setError('');
-      };
-      function handlePasswordConfirmationChange(event) {
-        setPasswordConfirmation(event.target.value);
-        setError('');
+          if (value.trim() === '') {
+            setError('Please enter your password.');
+          } else if (value.length < 6) {
+            setError('Password should be at least 6 characters long.');
+          }
+        } else {
+          setError('Password should not exceed 30 characters.');
+        }
       }
+      
+      function handlePasswordConfirmationChange(event) {
+        const value = event.target.value;
+        setPasswordConfirmation(value);
+        setError('');
+      
+        if (value !== password) {
+          setError('Password and password confirmation do not match.');
+        }
+      };
+
       function handleSubmit(event) {
         event.preventDefault();
-        if (password !== passwordConfirmation) {
-          setError('Password and password confirmation do not match');
+      
+        if (
+          firstName.trim() === '' ||
+          lastName.trim() === '' ||
+          email.trim() === '' ||
+          password.trim() === '' ||
+          passwordConfirmation.trim() === ''
+        ) {
+          setError('Please fill in all the fields.');
+          return;
         }
-    }
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setPassword('');
+        setPasswordConfirmation('');
+        setError('');
+
+    };
            
     return(
      <div>
@@ -50,7 +104,7 @@ function PatientSignUpForm(){
             <div className="sign-up-right">
                 <h2 className="sign-up-header">Create an Account</h2>
                 <p className="sign-up-sub-text">Let's get you started</p>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label>
                         <input type="text" placeholder="First Name" value={firstName} onChange={handleFirstNameChange} className="sign-up-input"/>
                     </label>
