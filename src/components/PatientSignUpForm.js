@@ -40,6 +40,7 @@ function PatientSignUpForm(){
           setError('Password and password confirmation do not match');
         }
     }
+
            
     return(
      <div>

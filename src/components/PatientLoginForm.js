@@ -36,6 +36,21 @@ function PatientLoginForm(){
         return passwordRegex.test(password);
       };
 
+      function handleSubmit(event) {
+        event.preventDefault();
+
+        if (
+          email.trim() === '' ||
+          password.trim() === '' 
+        ) {
+          setError('Please fill in all the fields.');
+          
+        }
+
+        setEmail('');
+        setPassword('');
+    }
+
       return(
         <div>
              <Link to="/"><button type="submit" className='back-button'>Back to Homepage</button></Link>
@@ -45,7 +60,7 @@ function PatientLoginForm(){
                 <div className="login-right">
                 <h2 className="login-header">Welcome Back</h2>
                     <p className="login-sub-text">Continue from where you stopped</p>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                     <label>
                         <input type="text" placeholder="Email" value={email} onChange={handleEmailChange} className="login-input"/>
                     </label>
