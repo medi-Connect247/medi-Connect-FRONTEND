@@ -86,14 +86,7 @@ function PatientSignUpForm(){
           setError('Please fill in all the fields.');
           return;
         }
-        setFirstName('');
-        setLastName('');
-        setEmail('');
-        setPassword('');
-        setPasswordConfirmation('');
-        setError('');
-
-    };
+    }
            
     return(
      <div>

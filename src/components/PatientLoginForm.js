@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/med-logo_prev_ui.png";
 import "../pages/PatientLogin.css";
+import validator from 'email-validator';
+
 
 function PatientLoginForm(){
     const [email, setEmail] = useState('');
@@ -14,7 +16,7 @@ function PatientLoginForm(){
         setEmail(value);
         setError('');
         if (value === '') setError('Email is required.');
-        else if (!isValidEmail(value)) setError('Please enter a valid email address.');
+        else if (!isValidEmail(value) && !validator.validate(value)) setError('Please enter a valid email address.');
       }
       
       function handlePasswordChange(event) {
@@ -27,14 +29,36 @@ function PatientLoginForm(){
      
 
       function isValidEmail(email) {
-        const emailRegex = /^\S+@\S+\.\S+$/;
+        const emailRegex = /^\S+@\S+\.\S+.{50}$/;
         return emailRegex.test(email);
       };
 
       function isValidPassword(password) {
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{12,}$/;
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,30}$/;
         return passwordRegex.test(password);
       };
+
+      function handleSubmit(event) {
+        event.preventDefault();
+
+        if (email.trim() === '' || password.trim() === '') {
+            setError('Please fill in all the fields.');
+            return;
+          }
+
+          if (!validator.validate(email)) {
+            setError('Please enter a valid email address.');
+            return;
+          }
+        
+          if (!isValidPassword(password)) {
+            setError('Please enter a valid password.');
+            return;
+          }
+
+        setEmail('');
+        setPassword('');
+    }
 
       return(
         <div>
@@ -45,7 +69,7 @@ function PatientLoginForm(){
                 <div className="login-right">
                 <h2 className="login-header">Welcome Back</h2>
                     <p className="login-sub-text">Continue from where you stopped</p>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                     <label>
                         <input type="text" placeholder="Email" value={email} onChange={handleEmailChange} className="login-input"/>
                     </label>
