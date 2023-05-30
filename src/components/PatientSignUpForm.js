@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/med-logo_prev_ui.png";
 import "../pages/PatientSignUp.css"
+import axios from 'axios';
+
 
 function PatientSignUpForm(){
     const [firstName, setFirstName] = useState('');
@@ -9,6 +11,7 @@ function PatientSignUpForm(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
+    const [message,setMessage] = useState('')
     const [error, setError] = useState('');
 
     function handleFirstNameChange(event) {
@@ -86,7 +89,14 @@ function PatientSignUpForm(){
           setError('Please fill in all the fields.');
           return;
         }
+
+        axios.post('http://localhost:8090/api/v1/user/register',{firstName,lastName,email,password,passwordConfirmation})
+        .then(response => setMessage(response.data))
+        .catch(error => console.error(error))
     }
+
+
+
            
     return(
      <div>
