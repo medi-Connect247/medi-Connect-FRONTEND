@@ -62,11 +62,13 @@ function PatientLoginForm(){
 
       return(
         <div>
+            <div className="authentication-navbar">
              <Link to="/"><button type="submit" className='back-button'>Back to Homepage</button></Link>
-             <img src={logo} alt="Logo" className="logo" />
+             <img src={logo} alt="Logo" className="authentication-logo" />
+             </div>
              <div className="patient-login-section">
-                <div className="login-image"></div>
-                <div className="login-right">
+                <div className="patient-login-image"></div>
+                <div className="patient-login-right">
                 <h2 className="login-header">Welcome Back</h2>
                     <p className="login-sub-text">Continue from where you stopped</p>
                     <form onSubmit={handleSubmit}>
@@ -79,8 +81,8 @@ function PatientLoginForm(){
                     {error && <p>{error}</p>}
                     <button type="submit" className='login-btn'>Login</button>
                     <div className="container">
-                        <p className="last-text">Don't have an account?</p>
-                        <Link to="/PatientSignUp"><a  className="a-tag">Create an account</a></Link>
+                        <p className="patient-last-text">Don't have an account?</p>
+                        <Link to="/PatientSignUp"><a href="" className="patient-a-tag">Create an account</a></Link>
                     </div>
                     
                     </form>
