@@ -100,11 +100,11 @@ function PatientSignUpForm(){
            
     return(
      <div>
-        <Link to="/"><button type="submit" className='back-button'>Back to Homepage</button></Link>
-        <img src={logo} alt="Logo" className="logo" />
+        <Link to="/"><button type="submit" className='b-button'>Back to Homepage</button></Link>
+        <img src={logo} alt="Logo" className="authentication-logo" />
         <div className="sign-up-section">
-            <div className="sign-up-image"></div>
-            <div className="sign-up-right">
+            <div className="p-sign-up-image"></div>
+            <div className="patient-sign-up-right">
                 <h2 className="sign-up-header">Create an Account</h2>
                 <p className="sign-up-sub-text">Let's get you started</p>
                 <form onSubmit={handleSubmit}>
@@ -127,7 +127,7 @@ function PatientSignUpForm(){
                     <button type="submit" className='acct-btn'>Create Account</button>
                     <div className="patient-sn-container">
                         <p className="patient-sn-last-text">Already have an account?</p>
-                        <Link to="/PatientLogin"><a  className="patient-sn-a-tag">Login</a></Link>
+                        <Link to="/PatientLogin"><a href="" className="patient-sn-a-tag">Login</a></Link>
                     </div>
                     
                     </form>
