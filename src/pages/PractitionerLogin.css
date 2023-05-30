@@ -1,4 +1,4 @@
-.back-button{
+.prac-back-button{
     height: 40px;
     width: 150px;
     font-size: 15px;
@@ -10,25 +10,31 @@
     position: absolute;
     right: 0px;
     margin-top: 30px;
+    margin-right: 80px;
   }
   .login-section{
   display: flex;
   flex-direction: row;
+  margin-top: 30px;
+
   }
   .login-image{
   background-image: url(../assets/8\ \(2\).jpg);
-  height: 450px;
+  height: 400px;
   width: 50%;
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: 0px;
   flex-shrink: 0;
+  margin-left: 70px;
+  border-radius: 10px;
   }
   .login-right{
   margin-top: 0px;
   background-color: #fff;
   height: 450px;
   width: 50%;
+  margin-left: 100px;
   }
   .login-header{
     font-size: 25px;
@@ -66,13 +72,12 @@
     background: #090f17;
   }
   .last-text{
-    margin-left: 150px;
+    margin-left: 150px; 
   }
   .a-tag{
-    margin-right: 190px;
+   margin-right: 12px;
     text-decoration: none;
     list-style: none;
-    /* color:#3D71BD; */
   }
   .container{
     margin-top: 20px;

@@ -1,4 +1,4 @@
- .back-button{
+ .b-button{
   height: 40px;
   width: 150px;
   font-size: 15px;
@@ -10,13 +10,14 @@
   position: absolute;
   right: 0px;
   margin-top: 30px;
+  margin-right: 40px;
 }
 .sign-up-section{
   display: flex;
   flex-direction: row;
 
 }
-.sign-up-image{
+.p-sign-up-image{
   background-image: url(../assets/doctor-pic.jpg);
   height: 500px;
   width: 50%;
@@ -24,13 +25,15 @@
   background-size: cover;
   margin-top: 0px;
   flex-shrink: 0;
+  margin-left: 65px;
+  border-radius: 10px;
 }
-.sign-up-right{
+.patient-sign-up-right{
   margin-top: 0px;
   background-color: #fff;
   height: 600px;
   width: 50%;
-  margin-right: 200px;
+  margin-left: 140px;
   margin-bottom: 70px; 
 }
 .sign-up-header{
@@ -95,54 +98,7 @@
   margin-top: 20px;
   margin-left: 40px;
 }
-.google-button {
-   display: flex;
-  align-items: center; 
-  height: 40px;
-  width: 400px;
-  font-size: 15px;
-  border-radius: 8px;
-  border: 1px solid black;
-  background-color: #fff;
-  color: black;
-  cursor:pointer; 
-  margin-top: 20px;
-  margin-left: 40px;
-}
-.google-icon {
-  font-size: 10px;
-  text-align: center;
-}
-.material-icons {
-  font-size: 14px;
-}
- .span-text{
- text-align: center;
-} 
-.facebook-button {
- display: flex;
- align-items: center; 
- height: 40px;
- width: 400px;
- font-size: 15px;
- border-radius: 8px;
- border: 1px solid black;
- background-color: #fff;
- color: black;
- cursor:pointer; 
- margin-top: 20px;
- margin-left: 40px;
-}
-.facebook-icon {
- font-size: 10px;
- text-align: center;
-}
-.material-icons {
- font-size: 14px;
-}
-.span-text{
-text-align: center;
-}
+
 .patient-sn-container{
   display: flex;
   flex-direction: row;

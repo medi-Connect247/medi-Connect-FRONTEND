@@ -45,10 +45,10 @@ function PatientSignUpForm(){
     return(
      <div>
         <Link to="/"><button type="submit" className='back-button'>Back to Homepage</button></Link>
-        <img src={logo} alt="Logo" className="logo" />
+        <img src={logo} alt="Logo" className="authentication-logo" />
         <div className="practitioner-sign-up-section">
-            <div className="sign-up-image"></div>
-            <div className="sign-up-right">
+            <div className="practitioner-sign-up-image"></div>
+            <div className="p-sign-up-right">
                 <h2 className="sign-up-header">Create an Account</h2>
                 <p className="sign-up-sub-text">Let's get you started</p>
                 <form>
@@ -71,7 +71,7 @@ function PatientSignUpForm(){
                     <button type="submit" className='acct-btn'>Create Account</button>
                     <div className="sign-up-container">
                         <p className="sign-up-last-text">Already have an account?</p>
-                        <Link to="/PractitionerLogin"><a  className="sign-up-a-tag">Login</a></Link>
+                        <Link to="/PractitionerLogin"><a href="" className="sign-up-a-tag">Login</a></Link>
                     </div>
                     
                     </form>

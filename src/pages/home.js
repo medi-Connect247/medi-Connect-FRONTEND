@@ -1,102 +1,17 @@
-import React, { useState } from "react";
-import logo from "../assets/med-logo_prev_ui.png";
-import { RiArrowDropDownLine } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import React from "react";
+// import logo from "../assets/med-logo_prev_ui.png";
+// import { RiArrowDropDownLine } from "react-icons/ri";
+// import { Link } from "react-router-dom";
 import "./home.css";
-import FooterForm from "../components/footer";
+import Footer from "../components/footer";
+import Header from "../components/header";
 
 function Home() {
-    const [viewPatientsDropDown, setDropDown] = useState(false);
-    const [viewPractitionersDropDown, setPractitionersDropDown] = useState(false);
-	const [subject, setSubject] = useState('');
-	const [message, setMessage] = useState('');
-	const [email, setEmail] = useState('');
-    const [error, setError] = useState('');    
-
-    const patientsDropDown = () => {
-        setDropDown(!viewPatientsDropDown);
-    };
-    const practitionersDropDown = () => {
-        setPractitionersDropDown(!viewPractitionersDropDown);
-    };
-	function handleSubjectChange(event){
-		         setSubject(event.target.value);
-	             setError('');
-		    };
-			function handleMessageChange(event){
-				         setMessage(event.target.value);
-				         setError('');
-				    };
-					function handleEmailChange(event){
-						setEmail(event.target.value);
-						setError('');
-				   };
-			   
-		
-
     return (
+       <div>
         <div>
-            <nav>
-                <div className="nav-logo">
-                    <img src={logo} alt="Logo" className="logo" />
-                    <h2 className="app-name">MediConnect247</h2>
-                </div>
-                <div className="nav-links">
-                    <nav className="nav">
-                        <ul>
-                            <li>
-                                <a href="/">Home</a>
-                            </li>
-                            <li className="Dropdown">
-                                <a onClick={patientsDropDown}>
-                                    Patients{" "}
-                                    <RiArrowDropDownLine className="icon" />
-                                    {viewPatientsDropDown && (
-                                        <ul className="dropdowncontainer">
-                                            <li className="dropdown">
-                                                <Link to="/PatientLogin">
-                                                    Login
-                                                </Link>
-                                            </li>
-                                            <li className="dropdown2">
-                                                <Link to="/PatientSignUp">
-                                                    Sign Up
-                                                </Link>
-                                            </li>
-                                        </ul>
-                                    )}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/About">About</a>
-                            </li>
-                            <li className="Dropdown">
-                                <a onClick={practitionersDropDown}>
-                                    Practitioners{" "}
-                                    <RiArrowDropDownLine className="icon" />
-                                    {viewPractitionersDropDown && (
-                                        <ul className="dropdowncontainer">
-                                            <li className="dropdown">
-                                                <Link to="/PractitionerLogin">
-                                                    Login
-                                                </Link>
-                                            </li>
-                                            <li className="dropdown2">
-                                                <Link to="/PractitionerSignUp">
-                                                    Sign Up
-                                                </Link>
-                                            </li>
-                                        </ul>
-                                    )}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/">Contact</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </nav>
+            <Header/>
+        </div>
             <div className="image-container">
                 <div className="hero-section">
                     <h1 className="hero-header">
@@ -398,7 +313,7 @@ function Home() {
 									<i className="process-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M14.25 8.75c-.5 2.5-2.385 4.854-5.03 5.38A6.25 6.25 0 0 1 3.373 3.798C5.187 1.8 8.25 1.25 10.75 2.25"/><path d="m5.75 7.75l2.5 2.5l6-6.5"/></g></svg></i>
 								</div>
 								<span className="text2">
-                                Complete necessary payments for consultaion with Healthcare providers
+                                Complete necessary payments for consultation with Healthcare providers
                             </span>
 							</div>
 						</div>
@@ -406,58 +321,12 @@ function Home() {
                 </div>
             </div>
 
-			<div className="contact-section">
-				<div className="contact-image"></div>
-				<div className="contact-right">
-					<h1 className="contact-header">Contact us</h1>
-					<p className="contact-sub-text">Incase of any further questions or<br></br> inquiries,kindly contact us</p>
-					<form>
-						<label>
-							<input type= "text" value={subject} onChange={handleSubjectChange} placeholder="Subject"/>
-						</label>
+            <div>
+                <Footer/>
+            </div>
 
-						<label>
-							<input type= "text" value={message} onChange={handleMessageChange} placeholder="Message"/>
-						</label>
-						{error && <p>{error}</p>}
-						<button type="submit" className='contact-btn'>Contact</button>
+			
 
-					</form>
-				</div>
-			</div>
-			<div className="footer-section">
-				<div className="logo-section">
-					<div className="footer-logo">
-					<img src={logo} alt="Logo" className="logo" />
-					</div>
-					<p className="logo-text">Gain access to the best telemedicine<br></br> platform, Book appointment with medical<br></br> practitioners, and get<br></br> access to medications </p>
-				</div>
-
-				<div className="quick-links">
-					<h2 className="quick-links-section">Quick Links</h2>
-					<a href="">Home</a>
-					<a href="">Patient</a>
-					<a href="">About</a>
-					<a href="">Practitioner</a>
-					<a href="">Contacts</a>
-				</div>
-				<div className="socials-section">
-					<h2 className="socials">Contacts</h2>
-					<a>Facebook</a>
-					<a>Twitter</a>
-					<a>LinkedIn</a>
-					<a>Instagram</a>
-				</div>
-				<div className="newsletter-section">
-					<h2 className="newsletter-heading">Newsletter</h2>
-					<form>
-						<label>
-							<input type="text" placeholder="Email" value={email} onChange={handleEmailChange} className="email-input"/>
-						</label>
-						<button type="submit" className='submit-btn'>Submit</button>
-					</form>
-				</div>
-			</div>
         </div>
     );
 }
