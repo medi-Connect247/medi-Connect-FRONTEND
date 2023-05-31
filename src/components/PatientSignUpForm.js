@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import logo from "../assets/med-logo_prev_ui.png";
+
 import "../pages/PatientSignUp.css"
 
 function PatientSignUpForm(){
@@ -10,6 +11,7 @@ function PatientSignUpForm(){
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
     const [error, setError] = useState('');
+    
 
     function handleFirstNameChange(event){
              setFirstName(event.target.value);

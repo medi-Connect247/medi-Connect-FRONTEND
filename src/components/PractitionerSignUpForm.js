@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import logo from "../assets/med-logo_prev_ui.png";
 import "../pages/PractitionerSignUp.css"
 
@@ -10,6 +11,8 @@ function PatientSignUpForm(){
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
     const [error, setError] = useState('');
+    // const history = useHistory();
+    // const [modalOpen, setModalOpen] = useState(false);
 
     function handleFirstNameChange(event){
              setFirstName(event.target.value);
@@ -40,6 +43,7 @@ function PatientSignUpForm(){
         if (password !== passwordConfirmation) {
           setError('Password and password confirmation do not match');
         }
+
     }
            
     return(

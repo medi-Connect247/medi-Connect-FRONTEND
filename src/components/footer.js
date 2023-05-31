@@ -55,7 +55,7 @@ function Footer(){
         <a href="">Patient</a>
         <Link to="/About"><a href="">About</a></Link>
         <a href="">Practitioner</a>
-        <a href="">Contacts</a>
+        <a href="/contact">Contacts</a>
       </div>
       <div className="socials-section">
         <h2 className="socials">Contacts</h2>

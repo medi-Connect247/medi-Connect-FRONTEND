@@ -16,8 +16,7 @@ function PractitionerHomePage(){
                 <div className='dashboard-part'>
                     <div className='dashboard-left'></div>
                     <div className='dashboard-right'>
-                        <h1>Consult with our Healthcare<br></br> 
-                         Practitioners today at ease</h1>
+                        <h1>Book Appointments with healthcare practitioners today at ease</h1>
                         <p className='little-text'>Book Appointments with our Practitioners</p>
                         <Link to="/PractitionerDashboard"><button type='submit' className='pd-btn'>View Dashboard</button></Link>
                     </div>
