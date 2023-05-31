@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import logo from "../assets/med-logo_prev_ui.png";
 import "../pages/PractitionerSignUp.css"
 
-function PatientSignUpForm(){
+function PractitionerSignUpForm(){
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -42,6 +42,12 @@ function PatientSignUpForm(){
         }
       };
       
+      function handleEmailChange(event) {
+        const value = event.target.value;
+        if (value.length <= 50) {
+          setEmail(value);
+          setError('');
+      
           if (value.trim() === '') {
             setError('Please enter your email address.');
           } else if (!/\S+@\S+\.\S+/.test(value)) {
@@ -51,6 +57,8 @@ function PatientSignUpForm(){
           setError('Email should not exceed 50 characters.');
         }
       };
+
+     
    
       function handlePasswordChange(event) {
         const value = event.target.value;
@@ -126,7 +134,7 @@ function PatientSignUpForm(){
                         <input type="password" placeholder="Confirm Password" value={passwordConfirmation} onChange={handlePasswordConfirmationChange} className="sign-up-input"/>
                     </label>
                     {error && <p>{error}</p>}
-                    <button type="submit" className='acct-btn'>Create Account</button>
+                    <Link to="/AccountSuccess"><button type="submit" className='acct-btn'>Create Account</button></Link>
                     <div className="sign-up-container">
                         <p className="sign-up-last-text">Already have an account?</p>
                         <Link to="/PractitionerLogin"><a href="" className="sign-up-a-tag">Login</a></Link>
@@ -140,5 +148,5 @@ function PatientSignUpForm(){
       );
     
 }
-export default PatientSignUpForm;
+export default PractitionerSignUpForm;
 

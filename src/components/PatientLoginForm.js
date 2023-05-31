@@ -79,7 +79,7 @@ function PatientLoginForm(){
                         <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} className="login-input"/>
                     </label>
                     {error && <p>{error}</p>}
-                    <Link to="/AccountSuccess"><button type="submit" className='login-btn'>Login</button></Link>
+                    <button type="submit" className='login-btn'>Login</button>
                     <div className="container">
                         <p className="patient-last-text">Don't have an account?</p>
                         <Link to="/PatientSignUp"><a href="" className="patient-a-tag">Create an account</a></Link>

@@ -116,7 +116,7 @@ function PatientSignUpForm(){
                         <input type="password" placeholder="Confirm Password" value={passwordConfirmation} onChange={handlePasswordConfirmationChange} className="sign-up-input"/>
                     </label>
                     {error && <p>{error}</p>}
-                    <button type="submit" className='acct-btn'>Create Account</button>
+                    <Link to="/AccountSuccess"><button type="submit" className='acct-btn'>Create Account</button></Link>
                     <div className="patient-sn-container">
                         <p className="patient-sn-last-text">Already have an account?</p>
                         <Link to="/PatientLogin"><a href="" className="patient-sn-a-tag">Login</a></Link>
