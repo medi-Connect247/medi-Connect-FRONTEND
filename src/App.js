@@ -12,6 +12,9 @@ import PractitionerHomePage from "./pages/PractitionerHomePage.js";
 import PractitionerDashboard from "./pages/PractitionerDashboard.js";
 import Contact from "./pages/Contact.js";
 import Accordion from "./components/Faq.js";
+import PatientDashboard from "./pages/PatientDashboard.js";
+import PatientHomePage from "./pages/PatientHomePage.js";
+
 
 function App() {
   return (
@@ -29,6 +32,9 @@ function App() {
         <Route path="/PractitionerDashboard" element={<PractitionerDashboard/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/Accordion" element={<Accordion/>}/>
+        <Route path="/PatientDashboard" element={<PatientDashboard/>}/>
+        <Route path="/PatientHomePage" element={<PatientHomePage/>}/>
+        
       </Routes>
     </Router>
   );

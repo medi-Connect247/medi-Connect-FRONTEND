@@ -59,6 +59,17 @@ return(
         <hr className='vector'></hr>
     </div>
  </div>
+ <div className='request-and-message'>
+        <div className='request-div'>
+            <h2 className='request-header'>Appointment Request</h2>
+            <hr className='vector2'></hr>
+        </div>
+
+        <div className='message-div'>
+            <h2 className='message-header'>Recent Messages</h2>
+            <hr className='vector3'></hr>
+        </div>
+    </div>
 
    <div className='dashboard-left-side'>
    <img src={logo} alt="Logo" className="pd-logo" />
@@ -114,6 +125,15 @@ return(
                     <i className="pd-icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066-2.573c-.94-1.543.826-3.31 2.37-2.37c1 .608 2.296.07 2.572-1.065z"/><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0-6 0"/></g></svg></i>
                     <span className="pd-text">
                    <a href=''>Settings</a>
+                    </span>
+                </div>
+            </div>
+
+            <div className="pd-container">
+                <div className="pd-item">
+                    <i className="pd-icons"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><path fill="currentColor" d="M23 4H7a2 2 0 0 0-2 2v24a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6h-9.37a1 1 0 0 1-1-1a1 1 0 0 1 1-1H25V6a2 2 0 0 0-2-2Z" class="clr-i-solid clr-i-solid-path-1"/><path fill="currentColor" d="M28.16 17.28a1 1 0 0 0-1.41 1.41L30.13 22H25v2h5.13l-3.38 3.46a1 1 0 1 0 1.41 1.41l5.84-5.8Z" class="clr-i-solid clr-i-solid-path-2"/><path fill="none" d="M0 0h36v36H0z"/></svg></i>
+                    <span className="pd-text">
+                   <a href=''>Logout</a>
                     </span>
                 </div>
             </div>

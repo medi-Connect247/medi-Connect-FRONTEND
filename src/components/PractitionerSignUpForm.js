@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import logo from "../assets/med-logo_prev_ui.png";
 import "../pages/PractitionerSignUp.css"
 
@@ -30,12 +31,16 @@ function PatientSignUpForm(){
           setError('Last name should contain alphabets and can not exceed 50 characters.');
         }
       };
-
-      function handleEmailChange(event) {
+    
+      function handleLastNameChange(event) {
         const value = event.target.value;
-        if (value.length <= 50) {
-          setEmail(value);
+        if (/^[A-Za-z]*$/.test(value) && value.length <= 50) {
+          setLastName(value);
           setError('');
+        } else {
+          setError('Last name should contain alphabets and can not exceed 50 characters.');
+        }
+      };
       
           if (value.trim() === '') {
             setError('Please enter your email address.');
@@ -86,6 +91,7 @@ function PatientSignUpForm(){
           setError('Please fill in all the fields.');
           return;
         }
+
         setFirstName('');
         setLastName('');
         setEmail('');
