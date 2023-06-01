@@ -10,7 +10,7 @@ function PatientSignUpForm(){
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [passwordConfirmation, setPasswordConfirmation] = useState('');
+    const [passwordMatches, setPasswordMatches] = useState('');
     const [message,setMessage] = useState('')
     const [error, setError] = useState('');
 
@@ -68,7 +68,7 @@ function PatientSignUpForm(){
       
       function handlePasswordConfirmationChange(event) {
         const value = event.target.value;
-        setPasswordConfirmation(value);
+        setPasswordMatches(value);
         setError('');
       
         if (value !== password) {
@@ -84,13 +84,13 @@ function PatientSignUpForm(){
           lastName.trim() === '' ||
           email.trim() === '' ||
           password.trim() === '' ||
-          passwordConfirmation.trim() === ''
+          passwordMatches.trim() === ''
         ) {
           setError('Please fill in all the fields.');
           return;
         }
 
-        axios.post('http://localhost:8090/api/v1/user/register',{firstName,lastName,email,password,passwordConfirmation})
+        axios.post('http://localhost:8090/api/v1/user/register',{firstName,lastName,email,password,passwordMatches})
         .then(response => setMessage(response.data))
         .catch(error => console.error(error))
     }
@@ -121,7 +121,7 @@ function PatientSignUpForm(){
                         <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} className="sign-up-input"/>
                     </label>
                     <label>
-                        <input type="password" placeholder="Confirm Password" value={passwordConfirmation} onChange={handlePasswordConfirmationChange} className="sign-up-input"/>
+                        <input type="password" placeholder="Confirm Password" value={passwordMatches} onChange={handlePasswordConfirmationChange} className="sign-up-input"/>
                     </label>
                     {error && <p>{error}</p>}
                     <button type="submit" className='acct-btn'>Create Account</button>
