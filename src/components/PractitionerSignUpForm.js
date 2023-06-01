@@ -3,18 +3,17 @@ import { Link } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 import logo from "../assets/med-logo_prev_ui.png";
 import "../pages/PractitionerSignUp.css"
-import { useNavigate } from 'react-router-dom';
 
 function PractitionerSignUpForm(){
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [passwordConfirmation, setPasswordConfirmation] = useState('');
+    const [passwordMatches,setPasswordMatches ] = useState('');
     const [error, setError] = useState('');
     const [isLoading, setLoading] = useState(false);
     const navigate = useNavigate();
-
+}
     function handleFirstNameChange(event) {
         const value = event.target.value;
         if (/^[A-Za-z]*$/.test(value) && value.length <= 50) {
@@ -35,15 +34,21 @@ function PractitionerSignUpForm(){
         }
       };
     
-      function handleLastNameChange(event) {
+      // function handleLastNameChange(event) {
+      //   const value = event.target.value;
+      //   if (/^[A-Za-z]*$/.test(value) && value.length <= 50) {
+      //     setLastName(value);
+      //     setError('');
+      //   } else {
+      //     setError('Last name should contain alphabets and can not exceed 50 characters.');
+      //   }
+      // };
+
+      function handleEmailChange(event) {
         const value = event.target.value;
-        if (/^[A-Za-z]*$/.test(value) && value.length <= 50) {
-          setLastName(value);
+        if (value.length <= 50) {
+          setEmail(value);
           setError('');
-        } else {
-          setError('Last name should contain alphabets and can not exceed 50 characters.');
-        }
-      };
       
       function handleEmailChange(event) {
         const value = event.target.value;
@@ -79,9 +84,9 @@ function PractitionerSignUpForm(){
         }
       }
       
-      function handlePasswordConfirmationChange(event) {
+      function handlePasswordMatches(event) {
         const value = event.target.value;
-        setPasswordConfirmation(value);
+        setPasswordMatches(value);
         setError('');
       
         if (value !== password) {
@@ -127,20 +132,14 @@ function PractitionerSignUpForm(){
           lastName.trim() === '' ||
           email.trim() === '' ||
           password.trim() === '' ||
-          passwordConfirmation.trim() === ''
+          passwordMatches.trim() === ''
         ) {
           setError('Please fill in all the fields.');
-          return;
+              return;
         }
-
-        setFirstName('');
-        setLastName('');
-        setEmail('');
-        setPassword('');
-        setPasswordConfirmation('');
-        setError('');
-    };
-           
+          axios.post('http://localhost:8080/api/v1/user/doctorRegister',{firstName,lastName,email,password,passwordMatches})
+          .catch(error => console.error(error))
+      }           
     return(
      <div>
         <Link to="/"><button type="submit" className='back-button'>Back to Homepage</button></Link>
@@ -164,7 +163,7 @@ function PractitionerSignUpForm(){
                         <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} className="sign-up-input"/>
                     </label>
                     <label>
-                        <input type="password" placeholder="Confirm Password" value={passwordConfirmation} onChange={handlePasswordConfirmationChange} className="sign-up-input"/>
+                        <input type="password" placeholder="Confirm Password" value={passwordMatches} onChange={handlePasswordMatches} className="sign-up-input"/>
                     </label>
                     {error && <p>{error}</p>}
                     <button type="submit" className='acct-btn'>
@@ -174,14 +173,12 @@ function PractitionerSignUpForm(){
                         <p className="sign-up-last-text">Already have an account?</p>
                         <Link to="/PractitionerLogin"><a href="" className="sign-up-a-tag">Login</a></Link>
                     </div>
-                    
-                    </form>
-                    
+                    </form>              
             </div>
         </div>
      </div>
       );
-    
+    };    
 }
 export default PractitionerSignUpForm;
 
