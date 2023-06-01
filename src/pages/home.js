@@ -18,7 +18,7 @@ function Home() {
                         Complete and Accessible<br></br>Healthcare Solutions
                     </h1>
                     <p className="hero-section-sub-text">
-                        Gain access to the best telemedicine platform, Book
+                        Gain access to the best telemedicine platform, book
                         appointments<br></br>
                         with medical practitioners, and get access to
                         medications

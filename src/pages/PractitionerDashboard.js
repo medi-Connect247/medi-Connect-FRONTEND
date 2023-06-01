@@ -1,6 +1,7 @@
 import React from 'react';
 import "../pages/PractitionerDashboard.css"
 import logo from "../assets/med-logo_prev_ui.png";
+import { Link } from "react-router-dom";
 function PractitionerDashboard(){
 return(
 <div>
@@ -54,20 +55,20 @@ return(
             </div>
     </div>
     </div>
-    <div className='appointments-part'>
-        <h2 className='appointment-header'>Upcoming Appointments</h2>
-        <hr className='vector'></hr>
+    <div className='prac-appointments-part'>
+        {/* <h2 className='appointment-header'>Upcoming Appointments</h2>
+        <hr className='vector'></hr> */}
     </div>
  </div>
  <div className='request-and-message'>
-        <div className='request-div'>
-            <h2 className='request-header'>Appointment Request</h2>
-            <hr className='vector2'></hr>
+        <div className='prac-request-div'>
+            {/* <h2 className='request-header'>Appointment Request</h2>
+            <hr className='vector2'></hr> */}
         </div>
 
-        <div className='message-div'>
-            <h2 className='message-header'>Recent Messages</h2>
-            <hr className='vector3'></hr>
+        <div className='prac-message-div'>
+            {/* <h2 className='message-header'>Recent Messages</h2>
+            <hr className='vector3'></hr> */}
         </div>
     </div>
 
@@ -133,7 +134,7 @@ return(
                 <div className="pd-item">
                     <i className="pd-icons"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><path fill="currentColor" d="M23 4H7a2 2 0 0 0-2 2v24a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6h-9.37a1 1 0 0 1-1-1a1 1 0 0 1 1-1H25V6a2 2 0 0 0-2-2Z" class="clr-i-solid clr-i-solid-path-1"/><path fill="currentColor" d="M28.16 17.28a1 1 0 0 0-1.41 1.41L30.13 22H25v2h5.13l-3.38 3.46a1 1 0 1 0 1.41 1.41l5.84-5.8Z" class="clr-i-solid clr-i-solid-path-2"/><path fill="none" d="M0 0h36v36H0z"/></svg></i>
                     <span className="pd-text">
-                   <a href=''>Logout</a>
+                   <Link to="/"><a href="">Logout</a></Link>
                     </span>
                 </div>
             </div>

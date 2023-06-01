@@ -179,6 +179,8 @@
         margin-top: 30px;
         border: 2px solid #5A5A5A;
         border-radius: 10px;
+        background-image: url(../assets/1.jpeg);
+        background-size: cover;
     }
     .appointment-header{
         margin-left: 15px;
@@ -204,6 +206,8 @@
         margin-top: 30px;
         border: 2px solid #5A5A5A;
         border-radius: 10px;
+        background-image: url(../assets/new-wellness-pic.jpg);
+        background-size: cover;
     }
     .request-header{
         margin-left: 15px;
@@ -225,7 +229,14 @@
         margin-top: 30px;
         border: 2px solid #5A5A5A;
         border-radius: 10px;
+        background: url(../assets/istockphoto-1081389910-2048x2048-transformed.jpeg);
+        background-size: cover;
     }
+    /* .message-div-image{
+       
+        width: 300px;
+        height: 300px;
+    } */
     .message-header{
         margin-left: 15px;
         margin-top: 20px;
