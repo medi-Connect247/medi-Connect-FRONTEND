@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import logo from "../assets/med-logo_prev_ui.png";
 import "../pages/PractitionerSignUp.css"
+import axios from 'axios';
 
 function PatientSignUpForm(){
     const [firstName, setFirstName] = useState('');
@@ -98,6 +99,10 @@ function PatientSignUpForm(){
         setPassword('');
         setPasswordConfirmation('');
         setError('');
+
+        axios.post('http://localhost:8090/api/v1/user/doctorRegister',{firstName,lastName,email,password,passwordMatches})
+        .then(response => setMessage(response.data))
+        .catch(error => console.error(error))
     };
            
     return(

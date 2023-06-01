@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/med-logo_prev_ui.png";
 import "../pages/PractitionerLogin.css";
 import validator from 'email-validator';
+import axios from 'axios';
 
 function PractitionerLoginForm(){
     const [email, setEmail] = useState('');
@@ -58,6 +59,10 @@ function PractitionerLoginForm(){
 
         setEmail('');
         setPassword('');
+
+        axios.post('http://localhost:8090/api/v1/user/login',{email,password})
+        .then(response => setMessage(response.data))
+        .catch(error => console.error(error))
     }
 
       return(
