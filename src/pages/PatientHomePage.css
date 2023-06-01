@@ -1,0 +1,69 @@
+.p-homepage-image{
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+    url(../assets/8.jpg);
+
+  }
+  .p-header{
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    top: 300px;
+  }
+  .patient-dashboard-part{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .dashboard-left{
+    background-image: url(../assets/istockphoto-1412635615-2048x2048-transformed.jpeg);
+    height: 500px;
+    width: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 30px;
+    margin-left: 50px;
+    border-radius: 20px;
+    animation-name: imageTransform;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    /* animation-iteration-count: infinite; */
+  }
+  @keyframes imageTransform {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+.dashboard-right{
+    margin-top: 150px;
+    margin-left: 40px;
+}
+.little-text{
+    margin-top: 20px;
+    font-size: 19px;
+}
+.pd-btn{
+    height: 50px;
+    width: 200px;
+    font-size: 17px;
+    border-radius: 8px;
+    border: 1px solid #3D71BD;
+    background-color: #3D71BD;
+    color: #fff;
+    cursor:pointer; 
+    margin-top: 25px;
+}
+.pd-btn:hover{
+  background: #090f17;
+  transform: translateY(-10px);
+}

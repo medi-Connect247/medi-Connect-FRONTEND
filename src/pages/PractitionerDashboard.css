@@ -172,9 +172,9 @@ border-radius: 5px;
      color: #3D71BD; 
 }
 .appointments-part{
-    width: 500px;
+    width: 620px;
     height: 400px;
-    margin-left: 290px;
+    margin-left: 300px;
     background: #FFFFFF;
     margin-top: 30px;
     border: 2px solid #5A5A5A;
@@ -186,7 +186,53 @@ border-radius: 5px;
 }
 .vector{
     border: 1px solid #5A5A5A;
-    width: 497px;
+    width: 615px;
+    height: 0px;
+    margin-top: 10px;
+}
+.request-and-message{
+    display: flex;
+    flex-direction: row;
+}
+.request-div{
+    width: 300px;
+    height: 400px;
+    position: relative;
+    left: 1000px;
+    bottom: 860px;
+    background: #FFFFFF;
+    margin-top: 30px;
+    border: 2px solid #5A5A5A;
+    border-radius: 10px;
+}
+.request-header{
+    margin-left: 15px;
+    margin-top: 20px;
+}
+.vector2{
+    border: 1px solid #5A5A5A;
+    width: 300px;
+    height: 0px;
+    margin-top: 10px;
+}
+.message-div{
+    position: relative;
+    left: 700px;
+    bottom: 440px;
+    width: 300px;
+    height: 400px;
+    background: #FFFFFF;
+    margin-top: 30px;
+    border: 2px solid #5A5A5A;
+    border-radius: 10px;
+}
+.message-header{
+    margin-left: 15px;
+    margin-top: 20px;
+}
+.vector3{
+    border: 1px solid #5A5A5A;
+    width: 300px;
     height: 0px;
     margin-top: 10px;
 }
