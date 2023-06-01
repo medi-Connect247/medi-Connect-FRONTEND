@@ -60,9 +60,19 @@ function PractitionerLoginForm(){
         setEmail('');
         setPassword('');
 
-        axios.post('http://localhost:8090/api/v1/user/login',{email,password})
-        .then(response => setMessage(response.data))
-        .catch(error => console.error(error))
+        const login = async () => {
+          const res = await axios.post(
+            "http://localhost:8080/api/v1/user/authenticate",
+            { email, password }
+          );
+          if (res.status === 200) {
+            const { access_token, refresh_token } = res.data;
+            console.log("access", access_token);
+            sessionStorage.setItem("accessToken", access_token);
+            sessionStorage.setItem("refreshToken", refresh_token);
+          }
+        };
+        login();
     }
 
       return(
@@ -82,6 +92,7 @@ function PractitionerLoginForm(){
                         <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} className="login-input"/>
                     </label>
                     {error && <p>{error}</p>}
+                    <Link to="/AccountSuccess"><button type="submit" className='login-btn'>Login</button></Link>
                     <button type="submit" className='login-btn'>Login</button>
                     <div className="container">
                         <p className="last-text">Don't have an account?</p>

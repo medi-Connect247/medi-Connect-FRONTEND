@@ -48,7 +48,7 @@ function PatientSignUpForm(){
           } else if (!/\S+@\S+\.\S+/.test(value)) {
             setError('Please enter a valid email address.');
           }
-        } else {
+         else {
           setError('Email should not exceed 50 characters.');
         }
       };
@@ -100,10 +100,10 @@ function PatientSignUpForm(){
         setPasswordConfirmation('');
         setError('');
 
-        axios.post('http://localhost:8090/api/v1/user/doctorRegister',{firstName,lastName,email,password,passwordMatches})
+        axios.post('http://localhost:8080/api/v1/user/doctorRegister',{firstName,lastName,email,password,passwordMatches})
         .then(response => setMessage(response.data))
         .catch(error => console.error(error))
-    };
+    
            
     return(
      <div>
@@ -143,7 +143,8 @@ function PatientSignUpForm(){
         </div>
      </div>
       );
+    };
     
-}
+
 export default PatientSignUpForm;
 
