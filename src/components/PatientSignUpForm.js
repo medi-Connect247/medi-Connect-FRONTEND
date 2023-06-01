@@ -12,7 +12,6 @@ function PatientSignUpForm(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordMatches, setPasswordMatches] = useState('');
-    const [message,setMessage] = useState('')
     const [error, setError] = useState('');
     
 
@@ -92,8 +91,7 @@ function PatientSignUpForm(){
           return;
         }
 
-        axios.post('http://localhost:8090/api/v1/user/register',{firstName,lastName,email,password,passwordMatches})
-        .then(response => setMessage(response.data))
+        axios.post('http://localhost:8080/api/v1/user/register',{firstName,lastName,email,password,passwordMatches})
         .catch(error => console.error(error))
     }
 
