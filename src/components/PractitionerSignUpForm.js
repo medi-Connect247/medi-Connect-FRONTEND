@@ -10,7 +10,7 @@ function PatientSignUpForm(){
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [passwordConfirmation, setPasswordConfirmation] = useState('');
+    const [passwordMatches,setPasswordMatches ] = useState('');
     const [error, setError] = useState('');
 
     function handleFirstNameChange(event) {
@@ -33,22 +33,28 @@ function PatientSignUpForm(){
         }
       };
     
-      function handleLastNameChange(event) {
+      // function handleLastNameChange(event) {
+      //   const value = event.target.value;
+      //   if (/^[A-Za-z]*$/.test(value) && value.length <= 50) {
+      //     setLastName(value);
+      //     setError('');
+      //   } else {
+      //     setError('Last name should contain alphabets and can not exceed 50 characters.');
+      //   }
+      // };
+
+      function handleEmailChange(event) {
         const value = event.target.value;
-        if (/^[A-Za-z]*$/.test(value) && value.length <= 50) {
-          setLastName(value);
+        if (value.length <= 50) {
+          setEmail(value);
           setError('');
-        } else {
-          setError('Last name should contain alphabets and can not exceed 50 characters.');
-        }
-      };
       
           if (value.trim() === '') {
             setError('Please enter your email address.');
           } else if (!/\S+@\S+\.\S+/.test(value)) {
             setError('Please enter a valid email address.');
           }
-         else {
+        } else {
           setError('Email should not exceed 50 characters.');
         }
       };
@@ -69,9 +75,9 @@ function PatientSignUpForm(){
         }
       }
       
-      function handlePasswordConfirmationChange(event) {
+      function handlePasswordMatches(event) {
         const value = event.target.value;
-        setPasswordConfirmation(value);
+        setPasswordMatches(value);
         setError('');
       
         if (value !== password) {
@@ -87,23 +93,22 @@ function PatientSignUpForm(){
           lastName.trim() === '' ||
           email.trim() === '' ||
           password.trim() === '' ||
-          passwordConfirmation.trim() === ''
+          passwordMatches.trim() === ''
         ) {
           setError('Please fill in all the fields.');
-          return;
+              return;
         }
 
-        setFirstName('');
-        setLastName('');
-        setEmail('');
-        setPassword('');
-        setPasswordConfirmation('');
-        setError('');
+          axios.post('http://localhost:8080/api/v1/user/doctorRegister',{firstName,lastName,email,password,passwordMatches})
 
-        axios.post('http://localhost:8080/api/v1/user/doctorRegister',{firstName,lastName,email,password,passwordMatches})
-        .then(response => setMessage(response.data))
-        .catch(error => console.error(error))
-    
+          .catch(error => console.error(error))
+      
+        
+      }
+
+      
+
+       
            
     return(
      <div>
@@ -128,7 +133,7 @@ function PatientSignUpForm(){
                         <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} className="sign-up-input"/>
                     </label>
                     <label>
-                        <input type="password" placeholder="Confirm Password" value={passwordConfirmation} onChange={handlePasswordConfirmationChange} className="sign-up-input"/>
+                        <input type="password" placeholder="Confirm Password" value={passwordMatches} onChange={handlePasswordMatches} className="sign-up-input"/>
                     </label>
                     {error && <p>{error}</p>}
                     <button type="submit" className='acct-btn'>Create Account</button>

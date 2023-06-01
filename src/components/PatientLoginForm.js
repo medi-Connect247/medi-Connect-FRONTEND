@@ -60,7 +60,6 @@ function PatientLoginForm() {
     setEmail("");
     setPassword("");
 
-
     const login = async () => {
       console.log("login api");
       const res = await axios.post(
