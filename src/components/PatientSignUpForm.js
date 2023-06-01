@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link} from "react-router-dom";
 import logo from "../assets/med-logo_prev_ui.png";
+import { useNavigate } from 'react-router-dom';
 
 import "../pages/PatientSignUp.css"
 
@@ -11,6 +12,8 @@ function PatientSignUpForm(){
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
     const [error, setError] = useState('');
+    const [isLoading, setLoading] = useState(false);
+    const navigate = useNavigate();
     
 
     function handleFirstNameChange(event) {
@@ -75,8 +78,38 @@ function PatientSignUpForm(){
         }
       };
 
-      function handleSubmit(event) {
+      const handleSubmit = async(event) =>{
         event.preventDefault();
+
+        try {
+          setLoading(true); 
+          const response = await fetch('http://localhost:8080/api/v1/user/authenticate', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ firstName, lastName, email, password, passwordConfirmation }),
+          });
+    
+          if (response.ok) {
+            // const data = await response.json();
+            // const token = data.token;
+            navigate("/AccountSuccess")
+          } else {
+            setError('Invalid email or password');
+          }
+        } catch (error) {
+          console.error('Error during login:', error);
+          
+          setError('An error occurred during login');
+        } finally {
+          setLoading(false); 
+        }
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPassword("");
+        setPasswordConfirmation("");
       
         if (
           firstName.trim() === '' ||
@@ -116,7 +149,9 @@ function PatientSignUpForm(){
                         <input type="password" placeholder="Confirm Password" value={passwordConfirmation} onChange={handlePasswordConfirmationChange} className="sign-up-input"/>
                     </label>
                     {error && <p>{error}</p>}
-                    <Link to="/AccountSuccess"><button type="submit" className='acct-btn'>Create Account</button></Link>
+                    <button type="submit" className='acct-btn' disabled={isLoading}>
+                    {isLoading ? 'Loading...' : 'Create account'}
+                    </button>
                     <div className="patient-sn-container">
                         <p className="patient-sn-last-text">Already have an account?</p>
                         <Link to="/PatientLogin"><a href="" className="patient-sn-a-tag">Login</a></Link>

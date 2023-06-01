@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 import logo from "../assets/med-logo_prev_ui.png";
 import "../pages/PatientLogin.css";
 import validator from 'email-validator';
+import { useNavigate } from 'react-router-dom';
 
 
 function PatientLoginForm(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [isLoading, setLoading] = useState(false);
+    const navigate = useNavigate();
    
 
     function handleEmailChange(event) {
@@ -38,8 +41,35 @@ function PatientLoginForm(){
         return passwordRegex.test(password);
       };
 
-      function handleSubmit(event) {
+      const handleSubmit = async(event) =>{
         event.preventDefault();
+
+        try {
+          setLoading(true); 
+          const response = await fetch('http://localhost:8080/api/v1/user/authenticate', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, password }),
+          });
+    
+          if (response.ok) {
+            // const data = await response.json();
+            // const token = data.token;
+            navigate("/PatientDashboard")
+          } else {
+            setError('Invalid email or password');
+          }
+        } catch (error) {
+          console.error('Error during login:', error);
+          
+          setError('An error occurred during login');
+        } finally {
+          setLoading(false); 
+        }
+        setEmail('');
+        setPassword('');
 
         if (email.trim() === '' || password.trim() === '') {
             setError('Please fill in all the fields.');
@@ -56,8 +86,7 @@ function PatientLoginForm(){
             return;
           }
 
-        setEmail('');
-        setPassword('');
+       
     }
 
       return(
@@ -79,7 +108,9 @@ function PatientLoginForm(){
                         <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} className="login-input"/>
                     </label>
                     {error && <p>{error}</p>}
-                    <button type="submit" className='login-btn'>Login</button>
+                    <button type="submit" className='login-btn'>
+                    {isLoading ? 'Loading...' : 'Login'}
+                    </button>
                     <div className="container">
                         <p className="patient-last-text">Don't have an account?</p>
                         <Link to="/PatientSignUp"><a href="" className="patient-a-tag">Create an account</a></Link>

@@ -171,7 +171,7 @@ border-radius: 5px;
     font-size: 30px;
      color: #3D71BD; 
 }
-.appointments-part{
+.prac-appointments-part{
     width: 620px;
     height: 400px;
     margin-left: 300px;
@@ -179,6 +179,8 @@ border-radius: 5px;
     margin-top: 30px;
     border: 2px solid #5A5A5A;
     border-radius: 10px;
+    background-image: url(../assets/BackgroundImage2.jpeg);
+    background-size: cover;
 }
 .appointment-header{
     margin-left: 15px;
@@ -194,7 +196,7 @@ border-radius: 5px;
     display: flex;
     flex-direction: row;
 }
-.request-div{
+.prac-request-div{
     width: 300px;
     height: 400px;
     position: relative;
@@ -204,6 +206,8 @@ border-radius: 5px;
     margin-top: 30px;
     border: 2px solid #5A5A5A;
     border-radius: 10px;
+    background-image: url(../assets/istockphoto-1362937229-2048x2048-transformed.jpeg);
+    background-size: cover;
 }
 .request-header{
     margin-left: 15px;
@@ -215,7 +219,7 @@ border-radius: 5px;
     height: 0px;
     margin-top: 10px;
 }
-.message-div{
+.prac-message-div{
     position: relative;
     left: 700px;
     bottom: 440px;
@@ -225,6 +229,8 @@ border-radius: 5px;
     margin-top: 30px;
     border: 2px solid #5A5A5A;
     border-radius: 10px;
+    background-image: url(../assets/istockphoto-592647638-2048x2048-transformed.jpeg);
+    background-size: cover;
 }
 .message-header{
     margin-left: 15px;

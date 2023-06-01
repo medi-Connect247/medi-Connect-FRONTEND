@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import logo from "../assets/med-logo_prev_ui.png";
 import "../pages/PractitionerSignUp.css"
+import { useNavigate } from 'react-router-dom';
 
 function PractitionerSignUpForm(){
     const [firstName, setFirstName] = useState('');
@@ -11,6 +12,8 @@ function PractitionerSignUpForm(){
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
     const [error, setError] = useState('');
+    const [isLoading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     function handleFirstNameChange(event) {
         const value = event.target.value;
@@ -86,8 +89,38 @@ function PractitionerSignUpForm(){
         }
       };
 
-      function handleSubmit(event) {
+      const handleSubmit = async(event) =>{
         event.preventDefault();
+
+        try {
+          setLoading(true); 
+          const response = await fetch('http://localhost:8080/api/v1/user/authenticate', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ firstName, lastName, email, password, passwordConfirmation }),
+          });
+    
+          if (response.ok) {
+            // const data = await response.json();
+            // const token = data.token;
+            navigate("/AccountSuccess")
+          } else {
+            setError('Invalid email or password');
+          }
+        } catch (error) {
+          console.error('Error during login:', error);
+          
+          setError('An error occurred during login');
+        } finally {
+          setLoading(false); 
+        }
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPassword("");
+        setPasswordConfirmation("");
       
         if (
           firstName.trim() === '' ||
@@ -134,7 +167,9 @@ function PractitionerSignUpForm(){
                         <input type="password" placeholder="Confirm Password" value={passwordConfirmation} onChange={handlePasswordConfirmationChange} className="sign-up-input"/>
                     </label>
                     {error && <p>{error}</p>}
-                    <Link to="/AccountSuccess"><button type="submit" className='acct-btn'>Create Account</button></Link>
+                    <button type="submit" className='acct-btn'>
+                    {isLoading ? 'Loading...' : 'Create Account'}
+                    </button>
                     <div className="sign-up-container">
                         <p className="sign-up-last-text">Already have an account?</p>
                         <Link to="/PractitionerLogin"><a href="" className="sign-up-a-tag">Login</a></Link>
