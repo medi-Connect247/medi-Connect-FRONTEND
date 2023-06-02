@@ -4,6 +4,8 @@ import logo from "../assets/med-logo_prev_ui.png";
 import "../pages/PatientLogin.css";
 import validator from "email-validator";
 import axios from "axios";
+import PatientDashboard from "../pages/PatientDashboard"
+
 
 function PatientLoginForm() {
   const [email, setEmail] = useState("");

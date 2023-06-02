@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/med-logo_prev_ui.png";
-
 import "../pages/PatientSignUp.css";
 import axios from "axios";
 
