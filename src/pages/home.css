@@ -100,7 +100,7 @@ nav {
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: 40px;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     flex-shrink: 0;
 }
 .about-image:hover{
@@ -108,16 +108,19 @@ nav {
 }
 .about-texts {
     display: inline-block;
+    margin-top: 50px;
+    margin-left: 50px;
+    
 }
 .about-header {
-    margin-top: 80px;
+    /* margin-top: 80px; */
     margin-left: 30px;
     align-self: stretch;
 }
 .about-sub-texts {
     font-size: 20px;
     margin-left: 30px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 .container {
     position: relative;

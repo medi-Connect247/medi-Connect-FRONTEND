@@ -9,7 +9,7 @@ function PractitionerHomePage(){
          <div>
             <Header/>
             </div>
-            <div className='p-homepage-image'>
+            <div className='prac-homepage-image'>
                 <h5 className='p-header'>Practitioners</h5>
                 </div> 
                 {/* <div className='second-part'></div> */}

@@ -51,8 +51,12 @@
     }
     .patient-a-tag{
       margin-right: 120px;
+      text-decoration: none;
     }
     .patient-last-text{
       margin-left: 150px;
+    }
+    .error{
+      color: red;
     }
 
