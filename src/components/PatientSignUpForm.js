@@ -106,8 +106,7 @@ function PatientSignUpForm() {
             setError("Please fill in all the fields.");
             return;
         }
-        navigate("/AccountSuccess")
-
+        
         axios
             .post("http://localhost:8080/api/v1/user/register", {
                 firstName,
@@ -115,6 +114,9 @@ function PatientSignUpForm() {
                 email,
                 password,
                 passwordMatches,
+            })
+            .then((response) => {
+              navigate("/AccountSuccess");
             })
         
             .catch((error) => {
