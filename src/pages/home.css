@@ -2,7 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-family: "Poppins";
+    font-size: 14px;
 }
 .nav-logo {
     display: flex;
@@ -79,7 +80,7 @@ nav {
     text-align: center;
     position: relative;
     top: 250px;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-family: "Poppins";
     color: #fff;
 }
 .hero-section-sub-text {
@@ -113,14 +114,14 @@ nav {
     
 }
 .about-header {
-    /* margin-top: 80px; */
     margin-left: 30px;
     align-self: stretch;
+    font-size: 20px;
 }
 .about-sub-texts {
-    font-size: 20px;
+    font-size: 15px;
     margin-left: 30px;
-    /* margin-top: 20px; */
+    margin-top: 22px;
 }
 .container {
     position: relative;
@@ -132,10 +133,10 @@ nav {
 .item {
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .text1 {
-    font-size: 20px;
+    font-size: 14px;
     margin-left: 10px;
 }
 .about-icon {
@@ -201,7 +202,7 @@ i {
 }
 .features-texts{
   margin-left: 25px;
-  font-size: 15px;
+  font-size: 12px;
   position: relative;
   bottom: 200px; 
 }
@@ -224,9 +225,10 @@ i {
   margin-top: 100px;
   margin-right: 450px;
   align-self: stretch;
+  font-size: 17px;
 }
  .process-sub-texts{
-  font-size: 20px;
+  font-size: 13px;
    margin-top: 10px; 
 } 
 .process-box-div{
@@ -249,11 +251,12 @@ i {
   margin-left: 100px;
 }
 .text2{
-  font-size: 18px;
-  margin-top: 8px;
+  font-size: 13px;
+  margin-bottom: 5px;
   margin-left: 10px;
 }
 .process-icon{
   color: #3d71bd;
-  font-size: 20px;
+  font-size: 10px;
+  margin-bottom: 10px;
 }

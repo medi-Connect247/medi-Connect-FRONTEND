@@ -120,7 +120,7 @@ function PatientSignUpForm() {
             })
         
             .catch((error) => {
-                setError("An error occurred during login");
+                setError("An error occurred during registration");
                 console.error(error);
             })
             setLoading(false);
