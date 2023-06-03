@@ -29,11 +29,11 @@ function Footer(){
                 <p className="contact-sub-text">Incase of any further questions or<br></br> inquiries,kindly contact us</p>
                 <form>
                   <label>
-                    <input type= "text" value={subject} onChange={handleSubjectChange} placeholder="Subject"/>
+                    <input type= "text" value={subject} onChange={handleSubjectChange} placeholder="Subject" className="footer-input"/>
                   </label>
       
                   <label>
-                    <input type= "text" value={message} onChange={handleMessageChange} placeholder="Message"/>
+                    <input type= "text" value={message} onChange={handleMessageChange} placeholder="Message" className="footer-input"/>
                   </label>
                   {error && <p>{error}</p>}
                   <button type="submit" className='contact-btn'>Contact</button>

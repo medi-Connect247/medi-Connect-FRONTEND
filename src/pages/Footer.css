@@ -18,15 +18,16 @@
     height: 400px;
     margin-top: 40px;
     width: 50%;
+    /* padding-bottom: 40px; */
   }
   .contact-header{
-    margin-top:50px;
+    margin-top: 20px;
     margin-left: 40px;
     font-size: 2.5rem;
     color: #fff;
   }
   .contact-sub-text{
-    margin-top: 10px;
+    margin-top: 8px;
     margin-left: 40px;
     font-size: 19px;
     color: #fff;
@@ -108,7 +109,7 @@
   .email-input{
     border: 2px solid #808080;
     width: 300px;
-    height: 60px;
+    height: 40px;
     left: 0px;
     top: 51px;
     margin-top: 40px;
@@ -116,6 +117,14 @@
     color: black;
     font-size: 12px;
     margin-left:30px;
+  }
+  .email-input::placeholder{
+    padding-left: 20px;
+    font-size: 15px;
+  }
+  .footer-input::placeholder{
+    padding-left: 20px;
+    font-size: 15px;
   }
   .newsletter-heading{
     margin-top: 60px; 

@@ -57,6 +57,10 @@
   color: black;
   font-size: 12px;
 }
+.sign-up-input::placeholder{
+  padding-left: 20px;
+  font-size: 15px;
+}
 .acct-btn{
   height: 40px;
   width: 400px;
