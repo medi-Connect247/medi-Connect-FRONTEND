@@ -52,7 +52,7 @@ function PractitionerLoginForm() {
             setLoading(true);
             console.log("login api");
             const res = await axios.post(
-                "http://localhost:8080/api/v1/user/authenticate",
+                "http://localhost:8080/api/v1/user/doctor/authenticate",
                 { email, password }
             );
             if (res.status === 200) {
