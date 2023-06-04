@@ -77,21 +77,6 @@ function PractitionerLoginForm() {
         event.preventDefault();
 
         login();
-
-        // if (email.trim() === "" || password.trim() === "") {
-        //     setError("Please fill in all the fields.");
-        //     return;
-        // }
-
-        // if (!validator.validate(email)) {
-        //     setError("Please enter a valid email address.");
-        //     return;
-        // }
-
-        // if (!isValidPassword(password)) {
-        //     setError("Please enter a valid password.");
-        //     return;
-        // }
     };
 
     return (
