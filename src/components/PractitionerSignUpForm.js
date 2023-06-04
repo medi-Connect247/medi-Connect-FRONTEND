@@ -122,7 +122,7 @@ function PractitionerSignUpForm() {
         } catch (error) {
             console.error("Error during login:", error);
 
-            setError("An error occurred during login");
+            setError("An error occurred during registration");
         } finally {
             setLoading(false);
         }
