@@ -2,7 +2,16 @@ import React from "react";
 import "../pages/PatientDashboard.css";
 import logo from "../assets/med-logo_prev_ui.png";
 import { Link } from "react-router-dom";
+
 function PatientDashboard(){
+//     const [notificationCount, setNotificationCount] = useState(0);
+//     const handleNewMessage = () => {
+//     setNotificationCount(notificationCount + 1);
+//   };
+//   const handleNewAppointment = () => {
+//     setNotificationCount(notificationCount + 1); 
+//   };
+  
 return(
 <div>
 <div className='dashboard-header'>
@@ -66,7 +75,7 @@ return(
             <hr className='vector2'></hr> */}
         </div>
 
-        <div className='message-div'>
+<div className='message-div'>
             {/* <h2 className='message-header'>Recent Messages</h2>
             <hr className='vector3'></hr> */}
             <div className="message-div-image"></div>
@@ -90,7 +99,7 @@ return(
                 <div className="pd-item">
                     <i className="pd-icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="currentColor"><path d="M7.75 2.5a.75.75 0 0 0-1.5 0v1.58c-1.44.115-2.384.397-3.078 1.092c-.695.694-.977 1.639-1.093 3.078h19.842c-.116-1.44-.398-2.384-1.093-3.078c-.694-.695-1.639-.977-3.078-1.093V2.5a.75.75 0 0 0-1.5 0v1.513C15.585 4 14.839 4 14 4h-4c-.839 0-1.585 0-2.25.013V2.5Z"/><path fill-rule="evenodd" d="M2 12c0-.839 0-1.585.013-2.25h19.974C22 10.415 22 11.161 22 12v2c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14v-2Zm15 2a1 1 0 1 0 0-2a1 1 0 0 0 0 2Zm0 4a1 1 0 1 0 0-2a1 1 0 0 0 0 2Zm-4-5a1 1 0 1 1-2 0a1 1 0 0 1 2 0Zm0 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0Zm-6-3a1 1 0 1 0 0-2a1 1 0 0 0 0 2Zm0 4a1 1 0 1 0 0-2a1 1 0 0 0 0 2Z" clip-rule="evenodd"/></g></svg></i>
                     <span className="pd-text">
-                    <a href=''>Appointments</a>
+                    <Link to="/appointments"><a href='#'>Appointments</a></Link>
                     </span>
                 </div>
             </div>

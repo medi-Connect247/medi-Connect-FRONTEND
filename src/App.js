@@ -14,6 +14,8 @@ import Contact from "./pages/Contact.js";
 import Accordion from "./components/Faq.js";
 import PatientDashboard from "./pages/PatientDashboard.js";
 import PatientHomePage from "./pages/PatientHomePage.js";
+import Appointments from "./pages/Appointment.js";
+import PractitionerList from "./components/AvailablePractitionerList.js"
 
 function App() {
     return (
@@ -24,30 +26,17 @@ function App() {
                 <Route path="/PatientLogin" element={<PatientLoginForm />} />
                 {/* <Route path="/UserDetails" element={<UserDetailsForm />} /> */}
                 <Route path="/About" element={<About />} />
-                <Route
-                    path="/PractitionerSignUp"
-                    element={<PractitionerSignUpForm />}
-                />
-                <Route
-                    path="/PractitionerLogin"
-                    element={<PractitionerLoginForm />}
-                />
+                <Route path="/PractitionerSignUp" element={<PractitionerSignUpForm />} />
+                <Route path="/PractitionerLogin" element={<PractitionerLoginForm />}/>
                 <Route path="/AccountSuccess" element={<AccountSuccess />} />
-                <Route
-                    path="/PractitionerHomePage"
-                    element={<PractitionerHomePage />}
-                />
-                <Route
-                    path="/PractitionerDashboard"
-                    element={<PractitionerDashboard />}
-                />
+                <Route path="/PractitionerHomePage"  element={<PractitionerHomePage />}/>
+                <Route path="/PractitionerDashboard" element={<PractitionerDashboard />}/>
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/Accordion" element={<Accordion />} />
-                <Route
-                    path="/PatientDashboard"
-                    element={<PatientDashboard />}
-                />
+                <Route path="/PatientDashboard"  element={<PatientDashboard />}/>
                 <Route path="/PatientHomePage" element={<PatientHomePage />} />
+                <Route path="/appointments" element={<Appointments/>}/>
+                <Route path="/availablePractitioners" element={<PractitionerList/>}/>
             </Routes>
         </Router>
     );
