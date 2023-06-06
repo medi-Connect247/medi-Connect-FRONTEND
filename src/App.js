@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/home.js";
 import PatientSignUpForm from "./components/PatientSignUpForm";
-// import UserDetailsForm from "./components/UserDetailsForm";
+import PatientProfileUpdate from "./components/PatientProfileUpdate.js";
 import PatientLoginForm from "./components/PatientLoginForm.js";
 import About from "./pages/About.js";
 import PractitionerSignUpForm from "./components/PractitionerSignUpForm";
@@ -24,11 +24,11 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/PatientSignUp" element={<PatientSignUpForm />} />
                 <Route path="/PatientLogin" element={<PatientLoginForm />} />
-                {/* <Route path="/UserDetails" element={<UserDetailsForm />} /> */}
-                <Route path="/About" element={<About />} />
+                <Route path="/PatientProfileUpdate" element={<PatientProfileUpdate/>}/>
+                <Route path="/About" element={<About/>}/>
                 <Route path="/PractitionerSignUp" element={<PractitionerSignUpForm />} />
                 <Route path="/PractitionerLogin" element={<PractitionerLoginForm />}/>
-                <Route path="/AccountSuccess" element={<AccountSuccess />} />
+                <Route path="/AccountSuccess" element={<AccountSuccess />}/>
                 <Route path="/PractitionerHomePage"  element={<PractitionerHomePage />}/>
                 <Route path="/PractitionerDashboard" element={<PractitionerDashboard />}/>
                 <Route path="/contact" element={<Contact />} />
