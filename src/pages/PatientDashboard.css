@@ -1,4 +1,8 @@
-
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins";
+}
 .dashboard-left-side{
     position: absolute;
     width: 260px;
@@ -48,7 +52,8 @@
     }
     .welcome-message{
     margin-left: 300px;
-    margin-top: 40px;
+    margin-top: 150px;
+    font-size: 22px;
     }
     .search{
     margin-left: 200px;
@@ -57,6 +62,9 @@
     border: 0.5px solid #5A5A5A;
     background: #FFFFFF;
     font-size: 14px;
+    }
+    .search::placeholder{
+        padding-left: 20px;
     }
     .dashboard-header{
      display: flex;

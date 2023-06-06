@@ -1,8 +1,24 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "../pages/AvailablePractitionerList.css";
+
 
 function PractionerList(){
-    const [practitioners,setPractitioners] = useState([])
+    const [practitioners,setPractitioners] = useState([{
+          firstName: "John",
+          lastName: "Doe",
+          speciality: "Dentistry",
+          profileImage: "../assets/istockphoto-1081389910-2048x2048-transformed.jpeg",
+    },
+
+    {
+        firstName: "John",
+        lastName: "Doe",
+        speciality: "Dentistry",
+        profileImage: "../assets/istockphoto-1081389910-2048x2048-transformed.jpeg",
+  }
+
+])
 
     useEffect(() =>{
         getAllAvailablePractitioner();
@@ -22,12 +38,16 @@ function PractionerList(){
 
     return(
         <div>
+            <h1 className="pl-header">List of Available Practitioners</h1>
            {practitioners.map((practitioner)=> (
-            <div key={practitioner.id}>
-                <img src = {practitioner.profileImage} alt=""></img>
-                <p>firstName:{practitioner.firstName}</p>
-                <p>lastName:{practitioner.lastName}</p>
-                <p>speciality:{practitioner.speciality}</p>
+            <div key={practitioner.id} className="practitioner-list-container">
+                <img src = {practitioner.profileImage} alt="" className="profile-image"></img>
+                <div className="practitioner-details">
+                <p className="first-name">{practitioner.firstName}</p>
+                <p className="last-name">{practitioner.lastName}</p>
+                </div>
+                <p className="speciality">{practitioner.speciality}</p>
+
             </div>
            ))}
         </div>
