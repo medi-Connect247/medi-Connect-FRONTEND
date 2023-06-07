@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import logo from "../assets/med-logo_prev_ui.png";
 import { Link, useParams } from "react-router-dom";
 import "../pages/PatientProfileUpdate.css";
@@ -11,7 +11,7 @@ function PatientProfileUpdate() {
   const [contactInfo, setContactInfo] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [address, setAddress] = useState("");
-  const [ProfilePicture, setProfilePicture] = useState(null);
+  const [ProfileImage, setProfilePicture] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [error, setError] = useState("");
 
@@ -19,8 +19,8 @@ function PatientProfileUpdate() {
   // const [password, setPassword] = useState("");
 
   const genderOptions = [
-    { value: "male", label: "Male" },
-    { value: "female", label: "Female" },
+    { value: "MALE", label: "Male" },
+    { value: "FEMALE", label: "Female" },
     { value: "other", label: "Other" },
   ];
 
@@ -42,27 +42,26 @@ function PatientProfileUpdate() {
   // }, []);
 
   const { id } = useParams();
-  //   console.log("profile id ", id);
+  // console.log("profile id ", id);
 
-  //   const token = sessionStorage.getItem("accessToken");
-  //   console.log(token);
+  // const token = sessionStorage.getItem("accessToken");
+  // console.log(token);
 
-  const fetchProfilePicture = async () => {
+  const ref = useRef();
+
+  const fetchUserDetails = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:8080/api/patient/${id}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-      );
+      const response = await fetch(`http://localhost:8080/api/patient/${id}`, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
       if (response.ok) {
-        const res = response?.json();
-        const data = res?.data;
-        console.log(data);
-        setGetUserDetails(data);
+        const res = await response?.json();
+
+        console.log(res);
+        setGetUserDetails(res);
         const imageData = await response.blob();
         const imageUrl = URL.createObjectURL(imageData);
         setProfilePicture(imageUrl);
@@ -75,7 +74,7 @@ function PatientProfileUpdate() {
   };
 
   useEffect(() => {
-    fetchProfilePicture();
+    fetchUserDetails();
   }, []);
 
   function handleFirstNameChange(event) {
@@ -111,48 +110,43 @@ function PatientProfileUpdate() {
     setSelectedImage(URL.createObjectURL(file));
     setProfilePicture(file);
   };
+  const updatedProfile = {
+    gender,
+    contactInfo,
+    dateOfBirth,
+    address,
+    ProfileImage,
+  };
+  const updateProfile = (updatedProfile) => {
+    const apiUrl = `http://localhost:8080/api/patient/${id}`;
+
+    return fetch(apiUrl, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json-patch+json",
+      },
+      body: JSON.stringify(updatedProfile),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to update profile");
+        }
+        console.error("Profile updated Successfully:", error.message);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   function handleSubmit(event) {
     event.preventDefault();
-    if (
-      !dateOfBirth ||
-      !gender ||
-      !contactInfo ||
-      !address ||
-      !ProfilePicture
-    ) {
+    if (!dateOfBirth && !gender && !contactInfo && !address && !ProfileImage) {
       setError("Please fill in all fields.");
       return;
     } else {
       console.error("Profile updated Successfully:", error.message);
     }
-    const updatedProfile = {
-      gender,
-      contactInfo,
-      dateOfBirth,
-      address,
-      ProfilePicture,
-    };
 
-    const updateProfile = (updatedProfile) => {
-      const apiUrl = "";
-
-      return fetch(apiUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedProfile),
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Failed to update profile");
-          }
-          console.error("Profile updated Successfully:", error.message);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
+    updateProfile();
   }
   const handleEditClick = () => {
     setEditMode(true);
@@ -161,7 +155,9 @@ function PatientProfileUpdate() {
   const handleSaveClick = () => {
     setEditMode(false);
   };
-   
+
+  console.log("userdetails ", getUserDetails.firstName);
+
   return (
     <div>
       <Link to="/PatientDashboard">
@@ -169,173 +165,179 @@ function PatientProfileUpdate() {
           Back to Dashboard
         </button>
       </Link>
-      <img src={logo} alt="Logo" className="authentication-logo"/>
-      {getUserDetails.map((test) => {
-        return (
-            <div>
-          <form onSubmit={handleSubmit} className="update-form" key={test?.id}>
-            <div className="form-group">
-              <label>
-                <p className="update-label">First Name:</p>
-                <input
-                  type="text"
-                  value={firstName}
-                  onChange={handleFirstNameChange}
-                  className="update-input"
-                  placeholder="First Name"
-                  defaultValue={test?.firstName}
-                  readOnly={!editMode}
-                />
-              </label>
-            </div>
+      <img src={logo} alt="Logo" className="authentication-logo" />
 
-            <div className="form-group">
-              <label>
-                <p className="update-label">Last Name:</p>
-                <input
-                  type="text"
-                  value={lastName}
-                  onChange={handleLastNameChange}
-                  className="update-input"
-                  placeholder="Last Name"
-                  defaultValue={test?.lastName}
-                  readOnly={!editMode}
-                />
-              </label>
-            </div>
-
-            <div className="form-group">
-              <label>
-                <p className="update-label">Email:</p>
-                <input
-                  type="text"
-                  value={email}
-                  onChange={handleEmailChange}
-                  className="update-input"
-                  placeholder="Email"
-                  defaultValue={test?.email}
-                  readOnly={!editMode}
-                />
-              </label>
-            </div>
-            
-            <label htmlFor="gender">
-              <p className="update-label">Gender:</p>
+      <div>
+        <form onSubmit={handleSubmit} className="update-form">
+          <div className="form-group">
+            <label>
+              <p className="update-label">First Name:</p>
+              <input
+                type="text"
+                defaultValue={getUserDetails?.firstName}
+                // value={firstName}
+                onChange={handleFirstNameChange}
+                className="update-input"
+                placeholder="First Name"
+                readOnly
+              />
             </label>
-            <div className="input-wrapper">
-              <select
-                id="gender-select"
+          </div>
+
+          <div className="form-group">
+            <label>
+              <p className="update-label">Last Name:</p>
+              <input
+                type="text"
+                // value={lastName}
+                onChange={handleLastNameChange}
+                className="update-input"
+                placeholder="Last Name"
+                defaultValue={getUserDetails?.lastName}
+                readOnly
+              />
+            </label>
+          </div>
+
+          <div className="form-group">
+            <label>
+              <p className="update-label">Email:</p>
+              <input
+                type="text"
+                // value={email}
+                onChange={handleEmailChange}
+                className="update-input"
+                placeholder="Email"
+                defaultValue={getUserDetails?.userDetails?.email}
+                readOnly
+              />
+            </label>
+          </div>
+          {/* <div className='form-group'>
+            <label>
+               <p className='update-label'> Gender:</p>
+                <input type="text" value={gender} onChange={handleGenderChange} className='update-input' placeholder='Gender' readOnly={!editMode}/>
+            </label>
+            </div> */}
+          <label htmlFor="gender">
+            <p className="update-label">Gender:</p>
+          </label>
+          <div className="input-wrapper">
+            <select
+              id="gender-select"
+              value={gender}
+              onChange={handleGenderChange}
+              className="hidden-select"
+            >
+              <input
+                type="text"
                 value={gender}
                 onChange={handleGenderChange}
-                className="hidden-select"
-              >
-                <input
-                  type="text"
-                  value={gender}
-                  onChange={handleGenderChange}
-                  readOnly={!editMode}
-                  className="update-input"
-                  placeholder="Select gender"
-                />
-                {genderOptions.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="form-group">
-              <label>
-                <p className="update-label">Contact Info:</p>
-                <input
-                  type="number"
-                  value={contactInfo}
-                  onChange={handleContactInfoChange}
-                  className="update-input"
-                  placeholder="Contact info"
-                  readOnly={!editMode}
-                />
-              </label>
-            </div>
-
-            <div className="form-group">
-              <label>
-                <p className="update-label">Date Of Birth:</p>
-                <input
-                  type="date"
-                  value={dateOfBirth}
-                  onChange={handleDateOfBirth}
-                  className="update-input"
-                  placeholder="Date of Birth"
-                  readOnly={!editMode}
-                />
-              </label>
-            </div>
-
-            <div className="form-group">
-              <label>
-                <p className="update-label">Address:</p>
-                <input
-                  type="text"
-                  value={address}
-                  onChange={handleAddressChange}
-                  className="update-input"
-                  placeholder="Address"
-                  readOnly={!editMode}
-                />
-              </label>
-            </div>
-            
-            <label
-              htmlFor="profile-picture"
-              className="profile-picture-label"
-              readOnly={!editMode}
-            >
-              Profile Picture:
-            </label>
-            <div className="profile-picture-input-container">
-              <input
-                type="file"
-                id="profile-picture"
-                accept="image/*"
-                onChange={handleFileChange}
-                className="profile-picture-input"
+                className="update-input"
+                placeholder="Select gender"
               />
-              {selectedImage && (
-                <div className="selected-image-preview-container">
-                  <img
-                    src={selectedImage}
-                    alt="Selected Profile Picture"
-                    className="selected-image-preview"
-                  />
-                </div>
-              )}
-            </div>
-            <div className="error">{error && <p>{error}</p>}</div>
-            <div className="update-buttons">
-              {editMode ? (
-                <button
-                  onClick={handleSaveClick}
-                  className="update-submit-btn"
-                  type="submit"
-                >
-                  Save
-                </button>
-              ) : (
-                <button
-                  onClick={handleEditClick}
-                  className="edit-btn"
-                  type="edit-btn"
-                >
-                  Edit
-                </button>
-              )}
-            </div>
-          </form>
+              {genderOptions?.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
           </div>
-        );
-      })}
+
+          <div className="form-group">
+            <label>
+              <p className="update-label">Contact Info:</p>
+              <input
+                type="number"
+                value={contactInfo}
+                onChange={handleContactInfoChange}
+                className="update-input"
+                placeholder="Contact info"
+              />
+            </label>
+          </div>
+
+          <div className="form-group">
+            <label>
+              <p className="update-label">Date Of Birth:</p>
+              <input
+                type="date"
+                value={dateOfBirth}
+                onChange={handleDateOfBirth}
+                className="update-input"
+                placeholder="Date of Birth"
+              />
+            </label>
+          </div>
+
+          <div className="form-group">
+            <label>
+              <p className="update-label">Address:</p>
+              <input
+                type="text"
+                value={address}
+                onChange={handleAddressChange}
+                className="update-input"
+                placeholder="Address"
+              />
+            </label>
+          </div>
+          {/* <label>
+          <p className='update-label'>Profile Picture:</p>
+          <input type="file" accept="image/*" onChange={(e) => setProfilePicture(e.target.files[0])} />
+        </label> */}
+          <label
+            htmlFor="profile-picture"
+            className="profile-picture-label"
+            readOnly={!editMode}
+          >
+            Profile Picture:
+          </label>
+          <div className="profile-picture-input-container">
+            <input
+              type="file"
+              id="profile-picture"
+              accept="image/*"
+              onChange={handleFileChange}
+              className="profile-picture-input"
+            />
+            {selectedImage && (
+              <div className="selected-image-preview-container">
+                <img
+                  src={selectedImage}
+                  alt="Selected Profile Picture"
+                  className="selected-image-preview"
+                  ref={ref}
+                  onFocus={true}
+                  onBlur={true}
+                />
+              </div>
+            )}
+          </div>
+          <div className="error">{error && <p>{error}</p>}</div>
+          <div className="update-buttons">
+            {/* <button type="submit" className='update-submit-btn'>Save</button>
+            <button type="submit" className='edit-btn'>Edit</button> */}
+            {editMode ? (
+              <button
+                onClick={handleSubmit}
+                className="update-submit-btn"
+                type="submit"
+              >
+                Save
+              </button>
+            ) : (
+              <button
+                onClick={handleEditClick}
+                className="edit-btn"
+                type="edit-btn"
+              >
+                Edit
+              </button>
+            )}
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
