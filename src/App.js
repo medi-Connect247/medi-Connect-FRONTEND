@@ -15,31 +15,43 @@ import Accordion from "./components/Faq.js";
 import PatientDashboard from "./pages/PatientDashboard.js";
 import PatientHomePage from "./pages/PatientHomePage.js";
 import Appointments from "./pages/Appointment.js";
-import PractitionerList from "./components/AvailablePractitionerList.js"
+import PractitionerList from "./components/AvailablePractitionerList.js";
 
 function App() {
-    return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/PatientSignUp" element={<PatientSignUpForm />} />
-                <Route path="/PatientLogin" element={<PatientLoginForm />} />
-                <Route path="/PatientProfileUpdate" element={<PatientProfileUpdate/>}/>
-                <Route path="/About" element={<About/>}/>
-                <Route path="/PractitionerSignUp" element={<PractitionerSignUpForm />} />
-                <Route path="/PractitionerLogin" element={<PractitionerLoginForm />}/>
-                <Route path="/AccountSuccess" element={<AccountSuccess />}/>
-                <Route path="/PractitionerHomePage"  element={<PractitionerHomePage />}/>
-                <Route path="/PractitionerDashboard" element={<PractitionerDashboard />}/>
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/Accordion" element={<Accordion />} />
-                <Route path="/PatientDashboard/:id"  element={<PatientDashboard />}/>
-                <Route path="/PatientHomePage" element={<PatientHomePage />} />
-                <Route path="/appointments" element={<Appointments/>}/>
-                <Route path="/availablePractitioners" element={<PractitionerList/>}/>
-            </Routes>
-        </Router>
-    );
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/PatientSignUp" element={<PatientSignUpForm />} />
+        <Route path="/PatientLogin" element={<PatientLoginForm />} />
+        <Route
+          path="/PatientProfileUpdate/:id"
+          element={<PatientProfileUpdate />}
+        />
+        <Route path="/About" element={<About />} />
+        <Route
+          path="/PractitionerSignUp"
+          element={<PractitionerSignUpForm />}
+        />
+        <Route path="/PractitionerLogin" element={<PractitionerLoginForm />} />
+        <Route path="/AccountSuccess" element={<AccountSuccess />} />
+        <Route
+          path="/PractitionerHomePage"
+          element={<PractitionerHomePage />}
+        />
+        <Route
+          path="/PractitionerDashboard"
+          element={<PractitionerDashboard />}
+        />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/Accordion" element={<Accordion />} />
+        <Route path="/PatientDashboard/:id" element={<PatientDashboard />} />
+        <Route path="/PatientHomePage" element={<PatientHomePage />} />
+        <Route path="/appointments" element={<Appointments />} />
+        <Route path="/availablePractitioners" element={<PractitionerList />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
