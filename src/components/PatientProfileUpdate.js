@@ -16,7 +16,7 @@ function PatientProfileUpdate() {
   const [error, setError] = useState("");
 
   const [getUserDetails, setGetUserDetails] = useState([]);
-  const [password, setPassword] = useState("");
+  // const [password, setPassword] = useState("");
 
   const genderOptions = [
     { value: "male", label: "Male" },
@@ -161,7 +161,7 @@ function PatientProfileUpdate() {
   const handleSaveClick = () => {
     setEditMode(false);
   };
-
+   
   return (
     <div>
       <Link to="/PatientDashboard">
@@ -169,7 +169,7 @@ function PatientProfileUpdate() {
           Back to Dashboard
         </button>
       </Link>
-      <img src={logo} alt="Logo" className="authentication-logo" />
+      <img src={logo} alt="Logo" className="authentication-logo"/>
       {getUserDetails.map((test) => {
         return (
             <div>
@@ -218,12 +218,7 @@ function PatientProfileUpdate() {
                 />
               </label>
             </div>
-            {/* <div className='form-group'>
-            <label>
-               <p className='update-label'> Gender:</p>
-                <input type="text" value={gender} onChange={handleGenderChange} className='update-input' placeholder='Gender' readOnly={!editMode}/>
-            </label>
-            </div> */}
+            
             <label htmlFor="gender">
               <p className="update-label">Gender:</p>
             </label>
@@ -291,10 +286,7 @@ function PatientProfileUpdate() {
                 />
               </label>
             </div>
-            {/* <label>
-          <p className='update-label'>Profile Picture:</p>
-          <input type="file" accept="image/*" onChange={(e) => setProfilePicture(e.target.files[0])} />
-        </label> */}
+            
             <label
               htmlFor="profile-picture"
               className="profile-picture-label"
@@ -322,8 +314,6 @@ function PatientProfileUpdate() {
             </div>
             <div className="error">{error && <p>{error}</p>}</div>
             <div className="update-buttons">
-              {/* <button type="submit" className='update-submit-btn'>Save</button>
-            <button type="submit" className='edit-btn'>Edit</button> */}
               {editMode ? (
                 <button
                   onClick={handleSaveClick}

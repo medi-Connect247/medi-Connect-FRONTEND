@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/med-logo_prev_ui.png";
 import "../pages/PatientLogin.css";
 import validator from "email-validator";
 import axios from "axios";
-import PatientDashboard from "../pages/PatientDashboard";
+import PatientDashboard from "../pages/PatientDashboard.js";
 import { computeHeadingLevel } from "@testing-library/react";
 
 function PatientLoginForm() {

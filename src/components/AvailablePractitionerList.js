@@ -4,7 +4,17 @@ import "../pages/AvailablePractitionerList.css";
 
 
 function PractionerList(){
-    const [practitioners,setPractitioners] = useState([]);
+    const [practitioners,setPractitioners] = useState([{
+        fullName: "Dr. John Doe",
+        speciality: "Dentistry",
+        profileImage: "../assets/istockphoto-1081389910-2048x2048-transformed.jpeg"
+    },
+    {
+        fullName: "Dr. John Doe",
+        speciality: "Dentistry",
+        profileImage: "../assets/istockphoto-1081389910-2048x2048-transformed.jpeg"
+    }
+]);
 
 
     useEffect(() =>{
@@ -25,16 +35,18 @@ function PractionerList(){
 
     return(
         <div>
-            <h1 className="pl-header">List of Available Practitioners</h1>
+            <h1 className="pl-header">Our Healthcare Practitioners</h1>
            {practitioners.map((practitioner)=> (
             <div key={practitioner.id} className="practitioner-list-container">
+                <div className="practitioner-row">
                 <img src = {practitioner.profileImage} alt="" className="profile-image"></img>
                 <div className="practitioner-details">
-                <p className="first-name">{practitioner.firstName}</p>
-                <p className="last-name">{practitioner.lastName}</p>
-                </div>
+                <p className="practitioner-name">
+                 Dr. {practitioner.fullName}
+                </p>
                 <p className="speciality">{practitioner.speciality}</p>
-
+                </div>
+                </div>
             </div>
            ))}
         </div>

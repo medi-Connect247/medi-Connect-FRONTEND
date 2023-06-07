@@ -2,29 +2,32 @@
     margin-left: 30px;
     margin-top: 15px;
 }
+
 .pl-header{
-    margin-top: 25px;
-    margin-left: 30px;
+    margin-top: 30px;
+    margin-left: 50px;
     font-size: 30px;
 }
 .profile-image{
-width: 80px;
-height: 80px;
-background-size: cover;
-background-image: url(../assets/istockphoto-1081389910-2048x2048-transformed.jpeg);
-border-radius: 50%; 
+   margin-top: 20px;
+   margin-left: 20px;
+    width: 300px;
+    height: 200px;
+    background-size: cover;
+    background-image: url(../assets/istockphoto-1081389910-2048x2048-transformed.jpeg);
+    border-radius: 20px; 
 }
 .practitioner-details{
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    position: relative;
-    bottom: 70px;
-    left: 90px;
-}
-.speciality{
-    position: relative;
-    bottom: 60px;
-    left: 90px; 
-  
+ display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+position: relative;
+bottom: 30px;
+margin-left: 65px;
+width: 200px;
+height: 80px;
+background: #FFFFFF;
+border: 2px solid #A7A7A7;
+border-radius: 10px;
 }
