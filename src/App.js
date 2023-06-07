@@ -16,6 +16,8 @@ import PatientDashboard from "./pages/PatientDashboard.js";
 import PatientHomePage from "./pages/PatientHomePage.js";
 import Appointments from "./pages/Appointment.js";
 import PractitionerList from "./components/AvailablePractitionerList.js";
+import AppointmentForm from "./pages/AppointmentForm.js";
+
 
 function App() {
   return (
@@ -49,6 +51,7 @@ function App() {
         <Route path="/PatientHomePage" element={<PatientHomePage />} />
         <Route path="/appointments" element={<Appointments />} />
         <Route path="/availablePractitioners" element={<PractitionerList />} />
+        <Route path="/appointmentForm" element={<AppointmentForm/>}/>
       </Routes>
     </Router>
   );

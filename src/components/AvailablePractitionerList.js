@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../pages/AvailablePractitionerList.css";
+import { Link } from "react-router-dom";
 
 
 function PractionerList(){
     const [practitioners,setPractitioners] = useState([{
-        fullName: "Dr. John Doe",
+        fullName: "John Doe",
         speciality: "Dentistry",
         profileImage: "../assets/istockphoto-1081389910-2048x2048-transformed.jpeg"
     },
     {
-        fullName: "Dr. John Doe",
+        fullName: "John Doe",
         speciality: "Dentistry",
         profileImage: "../assets/istockphoto-1081389910-2048x2048-transformed.jpeg"
     }
@@ -42,7 +43,7 @@ function PractionerList(){
             <div key={practitioner.id} className="practitioner-list-container">
                 <div className="flex-div">
                 <img src = {practitioner.profileImage} alt="" className="profile-image"></img>
-                <div className="request-button">Request</div>
+                <Link to="/appointmentForm"><div className="request-button">Request</div></Link>
                 </div>
                 <div className="practitioner-details">
                 <p className="practitioner-name">

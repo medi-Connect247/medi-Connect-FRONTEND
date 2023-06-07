@@ -1,0 +1,34 @@
+.appointment-form-header{
+    font-size: 20px;
+}
+.create-appointment-btn{
+    height: 50px;
+    width: 200px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 2px solid #3D71BD;
+    background-color: #3D71BD;
+    color: #fff;
+    cursor:pointer; 
+}
+.create-appointment-btn:hover{
+    background:#0e1c30;
+}
+.appointment-pic{
+    background-image: url(../assets/BackgroundImage.jpeg);
+    height: 100vh;
+    width: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+.create-appointment-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+.appointment-form{
+    width: 50%;
+    margin-top: 50px;
+}
