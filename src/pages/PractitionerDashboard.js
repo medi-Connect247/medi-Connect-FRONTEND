@@ -248,7 +248,9 @@ function PractitionerDashboard() {
               </svg>
             </i>
             <span className="pd-text">
+            <Link to={`/PatientProfileUpdate/${id}`}>
               <a href="">Profile</a>
+              </Link>
             </span>
           </div>
         </div>
