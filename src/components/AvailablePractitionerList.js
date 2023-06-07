@@ -4,21 +4,8 @@ import "../pages/AvailablePractitionerList.css";
 
 
 function PractionerList(){
-    const [practitioners,setPractitioners] = useState([{
-          firstName: "John",
-          lastName: "Doe",
-          speciality: "Dentistry",
-          profileImage: "../assets/istockphoto-1081389910-2048x2048-transformed.jpeg",
-    },
+    const [practitioners,setPractitioners] = useState([]);
 
-    {
-        firstName: "John",
-        lastName: "Doe",
-        speciality: "Dentistry",
-        profileImage: "../assets/istockphoto-1081389910-2048x2048-transformed.jpeg",
-  }
-
-])
 
     useEffect(() =>{
         getAllAvailablePractitioner();

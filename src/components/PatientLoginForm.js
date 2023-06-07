@@ -4,8 +4,8 @@ import logo from "../assets/med-logo_prev_ui.png";
 import "../pages/PatientLogin.css";
 import validator from "email-validator";
 import axios from "axios";
-import PatientDashboard from "../pages/PatientDashboard"
-
+import PatientDashboard from "../pages/PatientDashboard";
+import { computeHeadingLevel } from "@testing-library/react";
 
 function PatientLoginForm() {
     const [email, setEmail] = useState("");
@@ -54,7 +54,7 @@ function PatientLoginForm() {
             );
             if (res.status === 200) {
                 const { access_token, refresh_token } = res.data;
-                console.log("res ", res?.data)
+                console.log("res data ", res?.data);
                 console.log("access", access_token);
                 sessionStorage.setItem("accessToken", access_token);
                 sessionStorage.setItem("refreshToken", refresh_token);
@@ -93,7 +93,6 @@ function PatientLoginForm() {
         //     return;
         // }
     }
-   
 
     return (
         <div>
@@ -133,7 +132,11 @@ function PatientLoginForm() {
                         </label>
                         <div className="error">{error && <p>{error}</p>}</div>
 
-                        <button type="submit" className="login-btn"  disabled={!isValidDetails}>
+                        <button
+                            type="submit"
+                            className="login-btn"
+                            disabled={!isValidDetails}
+                        >
                             {isLoading ? "Loading..." : "Login"}
                         </button>
 
