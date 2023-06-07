@@ -45,13 +45,13 @@ function PatientLoginForm() {
 
   const isValidDetails = Boolean(email) && Boolean(password);
 
-  const login = async () => {
+  const login = async() => {
     try {
       setLoading(true);
       console.log("login api");
       const res = await axios.post(
         "http://localhost:8080/api/v1/user/authenticate",
-        { email, password }
+        { email: email, password: password }
       );
       if (res.status === 200) {
         const { access_token, refresh_token } = res.data;
