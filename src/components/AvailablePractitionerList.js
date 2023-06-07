@@ -40,14 +40,16 @@ function PractionerList(){
             dedicated to delivering the best of healthcare to our patients</p>
            {practitioners.map((practitioner)=> (
             <div key={practitioner.id} className="practitioner-list-container">
+                <div className="flex-div">
                 <img src = {practitioner.profileImage} alt="" className="profile-image"></img>
+                <div className="request-button">Request</div>
+                </div>
                 <div className="practitioner-details">
                 <p className="practitioner-name">
                  Dr. {practitioner.fullName}
                 </p>
                 <p className="speciality">{practitioner.speciality}</p>
                 </div>
-                <div></div>
             </div>
            ))}
         </div>
