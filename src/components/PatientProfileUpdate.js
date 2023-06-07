@@ -40,7 +40,7 @@ function PatientProfileUpdate() {
     //   };
 
     //   fetchUserData();
-    // }, []);
+    // }, []);gi
 
     useEffect(() => {
         const fetchProfilePicture = async () => {

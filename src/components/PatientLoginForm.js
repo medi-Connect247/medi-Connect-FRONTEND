@@ -60,7 +60,7 @@ function PatientLoginForm() {
                 sessionStorage.setItem("refreshToken", refresh_token);
                 setEmail("");
                 setPassword("");
-                navigate("/PatientDashboard");
+                navigate(`/PatientDashboard/${res?.data?.id}`);
             } else {
                 setError("Invalid email or password");
             }
