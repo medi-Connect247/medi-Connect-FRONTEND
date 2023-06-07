@@ -54,6 +54,7 @@ function PatientLoginForm() {
             );
             if (res.status === 200) {
                 const { access_token, refresh_token } = res.data;
+                console.log("res ", res?.data)
                 console.log("access", access_token);
                 sessionStorage.setItem("accessToken", access_token);
                 sessionStorage.setItem("refreshToken", refresh_token);
