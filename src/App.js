@@ -45,7 +45,7 @@ function App() {
         />
         <Route path="/contact" element={<Contact />} />
         <Route path="/Accordion" element={<Accordion />} />
-        <Route path="/PatientDashboard/:id" element={<PatientDashboard />} />
+        <Route path="/PatientDashboard" element={<PatientDashboard />} />
         <Route path="/PatientHomePage" element={<PatientHomePage />} />
         <Route path="/appointments" element={<Appointments />} />
         <Route path="/availablePractitioners" element={<PractitionerList />} />

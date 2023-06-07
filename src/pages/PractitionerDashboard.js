@@ -66,8 +66,8 @@ function PractitionerDashboard() {
                 <span className="db-text">
                   <a href="">0</a>
                 </span>
-                {/* <p>Total Appointments</p> */}
               </div>
+               <p className="db-text2">Total Appointments</p> 
             </div>
           </div>
           <div className="dashboard-box">
@@ -90,6 +90,7 @@ function PractitionerDashboard() {
                   <a href="">0</a>
                 </span>
               </div>
+              <p className="db-text2">Total Messages</p> 
             </div>
           </div>
           <div className="dashboard-box">
@@ -114,6 +115,7 @@ function PractitionerDashboard() {
                   <a href="">0</a>
                 </span>
               </div>
+              <p className="db-text2">Total Appointments</p> 
             </div>
           </div>
         </div>

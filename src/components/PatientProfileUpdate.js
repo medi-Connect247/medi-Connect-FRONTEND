@@ -16,7 +16,7 @@ function PatientProfileUpdate() {
   const [error, setError] = useState("");
 
   const [getUserDetails, setGetUserDetails] = useState([]);
-  const [password, setPassword] = useState("");
+  // const [password, setPassword] = useState("");
 
   const genderOptions = [
     { value: "MALE", label: "Male" },

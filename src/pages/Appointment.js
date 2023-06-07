@@ -4,7 +4,7 @@ import AvailablePractitionerList from "../components/AvailablePractitionerList";
 function DoctorList(){
     return(
         <div>
-            <h1>List of Available Doctors</h1>
+            {/* <h1>List of Available Doctors</h1> */}
             <div>
                 <AvailablePractitionerList/>
             </div>
