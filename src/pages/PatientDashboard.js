@@ -44,9 +44,9 @@ function PatientDashboard() {
             <h5 className="dashboard-text">
               Experiencing any Health<br></br>issues lately?
             </h5>
-            <button type="submit" className="patient-dashboard-btn">
+            <Link to=""><button type="submit" className="patient-dashboard-btn">
               Book Appointments
-            </button>
+            </button></Link>
           </div>
         </div>
 
