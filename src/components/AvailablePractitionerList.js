@@ -36,9 +36,10 @@ function PractionerList(){
     return(
         <div>
             <h1 className="pl-header">Our Healthcare Practitioners</h1>
+            <p className="pl-sub-text">Here are some of our established practitioners who are<br></br> 
+            dedicated to delivering the best of healthcare to our patients</p>
            {practitioners.map((practitioner)=> (
             <div key={practitioner.id} className="practitioner-list-container">
-                <div className="practitioner-row">
                 <img src = {practitioner.profileImage} alt="" className="profile-image"></img>
                 <div className="practitioner-details">
                 <p className="practitioner-name">
@@ -46,7 +47,7 @@ function PractionerList(){
                 </p>
                 <p className="speciality">{practitioner.speciality}</p>
                 </div>
-                </div>
+                <div></div>
             </div>
            ))}
         </div>
