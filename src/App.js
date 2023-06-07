@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/home.js";
 import PatientSignUpForm from "./components/PatientSignUpForm";
 import PatientProfileUpdate from "./components/PatientProfileUpdate.js";
+import PractitionerProfileUpdate from "./components/PractitionerProfileUpdate.js";
 import PatientLoginForm from "./components/PatientLoginForm.js";
 import About from "./pages/About.js";
 import PractitionerSignUpForm from "./components/PractitionerSignUpForm";
@@ -29,6 +30,10 @@ function App() {
         <Route
           path="/PatientProfileUpdate/:id"
           element={<PatientProfileUpdate />}
+        />
+        <Route
+          path="/PractitionerProfileUpdate/:id"
+          element={<PractitionerProfileUpdate />}
         />
         <Route path="/About" element={<About />} />
         <Route
